@@ -1,0 +1,672 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C104D82C1B89A9B100A52C77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C104D82B1B89A9B100A52C77 /* main.m */; };
+		C104D82F1B89A9B100A52C77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C104D82E1B89A9B100A52C77 /* AppDelegate.m */; };
+		C104D8371B89A9B100A52C77 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C104D8361B89A9B100A52C77 /* Images.xcassets */; };
+		C104D8461B89A9B100A52C77 /* ZenAcupunctureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C104D8451B89A9B100A52C77 /* ZenAcupunctureTests.m */; };
+		C104D8541B89AA0B00A52C77 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C104D8501B89AA0B00A52C77 /* LaunchScreen.xib */; };
+		C104D8551B89AA0B00A52C77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C104D8521B89AA0B00A52C77 /* Main.storyboard */; };
+		C104D85B1B89AE9D00A52C77 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C104D85A1B89AE9D00A52C77 /* ViewController.m */; };
+		C104D86B1B89AEFF00A52C77 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C104D85E1B89AEFF00A52C77 /* AppConstants.m */; };
+		C104D8701B89AEFF00A52C77 /* ZASharedClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C104D86A1B89AEFF00A52C77 /* ZASharedClass.m */; };
+		C15F017A1B8B882D000C4150 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C15F01791B8B882D000C4150 /* LoginViewController.m */; };
+		C15F017D1B8B885F000C4150 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C15F017C1B8B885F000C4150 /* RegisterViewController.m */; };
+		C15F01811B8B8899000C4150 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C15F01801B8B8899000C4150 /* MainViewController.m */; };
+		C15F01881B8B8B9D000C4150 /* ZenAcunpuncture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C15F01871B8B8B9D000C4150 /* ZenAcunpuncture.jpg */; };
+		C15F018A1B8B8F64000C4150 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = C15F01891B8B8F64000C4150 /* header.png */; };
+		C15F01901B8B914D000C4150 /* subtitle.png in Resources */ = {isa = PBXBuildFile; fileRef = C15F018B1B8B914D000C4150 /* subtitle.png */; };
+		C15F01911B8B914D000C4150 /* Sports.png in Resources */ = {isa = PBXBuildFile; fileRef = C15F018C1B8B914D000C4150 /* Sports.png */; };
+		C15F01921B8B914D000C4150 /* DeepTissue.png in Resources */ = {isa = PBXBuildFile; fileRef = C15F018D1B8B914D000C4150 /* DeepTissue.png */; };
+		C15F01931B8B914D000C4150 /* Couples.png in Resources */ = {isa = PBXBuildFile; fileRef = C15F018E1B8B914D000C4150 /* Couples.png */; };
+		C15F01941B8B914D000C4150 /* swedish.png in Resources */ = {isa = PBXBuildFile; fileRef = C15F018F1B8B914D000C4150 /* swedish.png */; };
+		E24E5A783968F71158D11734 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18071766BBDA397BBAB9B17E /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C104D8401B89A9B100A52C77 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C104D81E1B89A9B100A52C77 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C104D8251B89A9B100A52C77;
+			remoteInfo = ZenAcupuncture;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		18071766BBDA397BBAB9B17E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		71DB138F92D7964FD24A3E9F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		A6252B04C6CBDA8F846A9FE4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C104D8261B89A9B100A52C77 /* ZenAcupuncture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZenAcupuncture.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C104D82A1B89A9B100A52C77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C104D82B1B89A9B100A52C77 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C104D82D1B89A9B100A52C77 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C104D82E1B89A9B100A52C77 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C104D8361B89A9B100A52C77 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C104D83F1B89A9B100A52C77 /* ZenAcupunctureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZenAcupunctureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C104D8441B89A9B100A52C77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C104D8451B89A9B100A52C77 /* ZenAcupunctureTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZenAcupunctureTests.m; sourceTree = "<group>"; };
+		C104D8511B89AA0B00A52C77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		C104D8531B89AA0B00A52C77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C104D8561B89AAD200A52C77 /* ZenAcupuncture-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZenAcupuncture-Prefix.pch"; sourceTree = "<group>"; };
+		C104D8591B89AE9D00A52C77 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C104D85A1B89AE9D00A52C77 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C104D85D1B89AEFF00A52C77 /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
+		C104D85E1B89AEFF00A52C77 /* AppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConstants.m; sourceTree = "<group>"; };
+		C104D8691B89AEFF00A52C77 /* ZASharedClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZASharedClass.h; sourceTree = "<group>"; };
+		C104D86A1B89AEFF00A52C77 /* ZASharedClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZASharedClass.m; sourceTree = "<group>"; };
+		C15F01781B8B882D000C4150 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		C15F01791B8B882D000C4150 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		C15F017B1B8B885F000C4150 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		C15F017C1B8B885F000C4150 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		C15F017F1B8B8899000C4150 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		C15F01801B8B8899000C4150 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		C15F01871B8B8B9D000C4150 /* ZenAcunpuncture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ZenAcunpuncture.jpg; path = ../../../../../Downloads/ZenAcunpuncture.jpg; sourceTree = "<group>"; };
+		C15F01891B8B8F64000C4150 /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
+		C15F018B1B8B914D000C4150 /* subtitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = subtitle.png; sourceTree = "<group>"; };
+		C15F018C1B8B914D000C4150 /* Sports.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sports.png; sourceTree = "<group>"; };
+		C15F018D1B8B914D000C4150 /* DeepTissue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DeepTissue.png; sourceTree = "<group>"; };
+		C15F018E1B8B914D000C4150 /* Couples.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Couples.png; sourceTree = "<group>"; };
+		C15F018F1B8B914D000C4150 /* swedish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swedish.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C104D8231B89A9B100A52C77 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E24E5A783968F71158D11734 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C104D83C1B89A9B100A52C77 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C104D81D1B89A9B100A52C77 = {
+			isa = PBXGroup;
+			children = (
+				C104D8281B89A9B100A52C77 /* ZenAcupuncture */,
+				C104D8421B89A9B100A52C77 /* ZenAcupunctureTests */,
+				C104D8271B89A9B100A52C77 /* Products */,
+				C5031DAB39C2D76BBE5C8B51 /* Pods */,
+				CDEF125962367530D8C32A0C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C104D8271B89A9B100A52C77 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C104D8261B89A9B100A52C77 /* ZenAcupuncture.app */,
+				C104D83F1B89A9B100A52C77 /* ZenAcupunctureTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C104D8281B89A9B100A52C77 /* ZenAcupuncture */ = {
+			isa = PBXGroup;
+			children = (
+				C104D82D1B89A9B100A52C77 /* AppDelegate.h */,
+				C104D82E1B89A9B100A52C77 /* AppDelegate.m */,
+				C104D85C1B89AEFF00A52C77 /* Constants */,
+				C104D85F1B89AEFF00A52C77 /* Models */,
+				C104D8681B89AEFF00A52C77 /* SharedClass */,
+				C104D8571B89AE9D00A52C77 /* Viewcontrollers */,
+				C104D84F1B89AA0B00A52C77 /* Storyboard */,
+				C104D8291B89A9B100A52C77 /* Supporting Files */,
+			);
+			path = ZenAcupuncture;
+			sourceTree = "<group>";
+		};
+		C104D8291B89A9B100A52C77 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C15F01861B8B8B75000C4150 /* Images */,
+				C104D8561B89AAD200A52C77 /* ZenAcupuncture-Prefix.pch */,
+				C104D8361B89A9B100A52C77 /* Images.xcassets */,
+				C104D82A1B89A9B100A52C77 /* Info.plist */,
+				C104D82B1B89A9B100A52C77 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C104D8421B89A9B100A52C77 /* ZenAcupunctureTests */ = {
+			isa = PBXGroup;
+			children = (
+				C104D8451B89A9B100A52C77 /* ZenAcupunctureTests.m */,
+				C104D8431B89A9B100A52C77 /* Supporting Files */,
+			);
+			path = ZenAcupunctureTests;
+			sourceTree = "<group>";
+		};
+		C104D8431B89A9B100A52C77 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C104D8441B89A9B100A52C77 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C104D84F1B89AA0B00A52C77 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C104D8501B89AA0B00A52C77 /* LaunchScreen.xib */,
+				C104D8521B89AA0B00A52C77 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		C104D8571B89AE9D00A52C77 /* Viewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				C104D8581B89AE9D00A52C77 /* SpalshView */,
+				C15F017E1B8B8899000C4150 /* Mainview */,
+				C15F016F1B8B87D5000C4150 /* LoginView */,
+				C15F01711B8B87D5000C4150 /* RegisterView */,
+				C15F01821B8B89A4000C4150 /* Acupuncture */,
+				C15F01831B8B89A4000C4150 /* AddressView */,
+				C15F01841B8B89A4000C4150 /* ConfirmationView */,
+				C15F01851B8B89A4000C4150 /* PaymentView */,
+			);
+			path = Viewcontrollers;
+			sourceTree = "<group>";
+		};
+		C104D8581B89AE9D00A52C77 /* SpalshView */ = {
+			isa = PBXGroup;
+			children = (
+				C104D8591B89AE9D00A52C77 /* ViewController.h */,
+				C104D85A1B89AE9D00A52C77 /* ViewController.m */,
+			);
+			path = SpalshView;
+			sourceTree = "<group>";
+		};
+		C104D85C1B89AEFF00A52C77 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C104D85D1B89AEFF00A52C77 /* AppConstants.h */,
+				C104D85E1B89AEFF00A52C77 /* AppConstants.m */,
+			);
+			path = Constants;
+			sourceTree = SOURCE_ROOT;
+		};
+		C104D85F1B89AEFF00A52C77 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = SOURCE_ROOT;
+		};
+		C104D8681B89AEFF00A52C77 /* SharedClass */ = {
+			isa = PBXGroup;
+			children = (
+				C104D8691B89AEFF00A52C77 /* ZASharedClass.h */,
+				C104D86A1B89AEFF00A52C77 /* ZASharedClass.m */,
+			);
+			path = SharedClass;
+			sourceTree = SOURCE_ROOT;
+		};
+		C15F016F1B8B87D5000C4150 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				C15F01781B8B882D000C4150 /* LoginViewController.h */,
+				C15F01791B8B882D000C4150 /* LoginViewController.m */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		C15F01711B8B87D5000C4150 /* RegisterView */ = {
+			isa = PBXGroup;
+			children = (
+				C15F017B1B8B885F000C4150 /* RegisterViewController.h */,
+				C15F017C1B8B885F000C4150 /* RegisterViewController.m */,
+			);
+			path = RegisterView;
+			sourceTree = "<group>";
+		};
+		C15F017E1B8B8899000C4150 /* Mainview */ = {
+			isa = PBXGroup;
+			children = (
+				C15F017F1B8B8899000C4150 /* MainViewController.h */,
+				C15F01801B8B8899000C4150 /* MainViewController.m */,
+			);
+			path = Mainview;
+			sourceTree = "<group>";
+		};
+		C15F01821B8B89A4000C4150 /* Acupuncture */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Acupuncture;
+			sourceTree = "<group>";
+		};
+		C15F01831B8B89A4000C4150 /* AddressView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AddressView;
+			sourceTree = "<group>";
+		};
+		C15F01841B8B89A4000C4150 /* ConfirmationView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ConfirmationView;
+			sourceTree = "<group>";
+		};
+		C15F01851B8B89A4000C4150 /* PaymentView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PaymentView;
+			sourceTree = "<group>";
+		};
+		C15F01861B8B8B75000C4150 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C15F018B1B8B914D000C4150 /* subtitle.png */,
+				C15F018C1B8B914D000C4150 /* Sports.png */,
+				C15F018D1B8B914D000C4150 /* DeepTissue.png */,
+				C15F018E1B8B914D000C4150 /* Couples.png */,
+				C15F018F1B8B914D000C4150 /* swedish.png */,
+				C15F01891B8B8F64000C4150 /* header.png */,
+				C15F01871B8B8B9D000C4150 /* ZenAcunpuncture.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		C5031DAB39C2D76BBE5C8B51 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				71DB138F92D7964FD24A3E9F /* Pods.debug.xcconfig */,
+				A6252B04C6CBDA8F846A9FE4 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CDEF125962367530D8C32A0C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				18071766BBDA397BBAB9B17E /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C104D8251B89A9B100A52C77 /* ZenAcupuncture */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C104D8491B89A9B100A52C77 /* Build configuration list for PBXNativeTarget "ZenAcupuncture" */;
+			buildPhases = (
+				671AE9122CDE257BCA7A6580 /* Check Pods Manifest.lock */,
+				C104D8221B89A9B100A52C77 /* Sources */,
+				C104D8231B89A9B100A52C77 /* Frameworks */,
+				C104D8241B89A9B100A52C77 /* Resources */,
+				1A4F1A14CC737EBCAE544B28 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZenAcupuncture;
+			productName = ZenAcupuncture;
+			productReference = C104D8261B89A9B100A52C77 /* ZenAcupuncture.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C104D83E1B89A9B100A52C77 /* ZenAcupunctureTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C104D84C1B89A9B100A52C77 /* Build configuration list for PBXNativeTarget "ZenAcupunctureTests" */;
+			buildPhases = (
+				C104D83B1B89A9B100A52C77 /* Sources */,
+				C104D83C1B89A9B100A52C77 /* Frameworks */,
+				C104D83D1B89A9B100A52C77 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C104D8411B89A9B100A52C77 /* PBXTargetDependency */,
+			);
+			name = ZenAcupunctureTests;
+			productName = ZenAcupunctureTests;
+			productReference = C104D83F1B89A9B100A52C77 /* ZenAcupunctureTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C104D81E1B89A9B100A52C77 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = SaiTeja;
+				TargetAttributes = {
+					C104D8251B89A9B100A52C77 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					C104D83E1B89A9B100A52C77 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = C104D8251B89A9B100A52C77;
+					};
+				};
+			};
+			buildConfigurationList = C104D8211B89A9B100A52C77 /* Build configuration list for PBXProject "ZenAcupuncture" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C104D81D1B89A9B100A52C77;
+			productRefGroup = C104D8271B89A9B100A52C77 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C104D8251B89A9B100A52C77 /* ZenAcupuncture */,
+				C104D83E1B89A9B100A52C77 /* ZenAcupunctureTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C104D8241B89A9B100A52C77 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C15F01881B8B8B9D000C4150 /* ZenAcunpuncture.jpg in Resources */,
+				C15F01901B8B914D000C4150 /* subtitle.png in Resources */,
+				C104D8551B89AA0B00A52C77 /* Main.storyboard in Resources */,
+				C15F01911B8B914D000C4150 /* Sports.png in Resources */,
+				C15F01921B8B914D000C4150 /* DeepTissue.png in Resources */,
+				C104D8541B89AA0B00A52C77 /* LaunchScreen.xib in Resources */,
+				C15F018A1B8B8F64000C4150 /* header.png in Resources */,
+				C104D8371B89A9B100A52C77 /* Images.xcassets in Resources */,
+				C15F01931B8B914D000C4150 /* Couples.png in Resources */,
+				C15F01941B8B914D000C4150 /* swedish.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C104D83D1B89A9B100A52C77 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A4F1A14CC737EBCAE544B28 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		671AE9122CDE257BCA7A6580 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C104D8221B89A9B100A52C77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C104D85B1B89AE9D00A52C77 /* ViewController.m in Sources */,
+				C104D82F1B89A9B100A52C77 /* AppDelegate.m in Sources */,
+				C104D82C1B89A9B100A52C77 /* main.m in Sources */,
+				C15F01811B8B8899000C4150 /* MainViewController.m in Sources */,
+				C15F017A1B8B882D000C4150 /* LoginViewController.m in Sources */,
+				C104D8701B89AEFF00A52C77 /* ZASharedClass.m in Sources */,
+				C104D86B1B89AEFF00A52C77 /* AppConstants.m in Sources */,
+				C15F017D1B8B885F000C4150 /* RegisterViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C104D83B1B89A9B100A52C77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C104D8461B89A9B100A52C77 /* ZenAcupunctureTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C104D8411B89A9B100A52C77 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C104D8251B89A9B100A52C77 /* ZenAcupuncture */;
+			targetProxy = C104D8401B89A9B100A52C77 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C104D8501B89AA0B00A52C77 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C104D8511B89AA0B00A52C77 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		C104D8521B89AA0B00A52C77 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C104D8531B89AA0B00A52C77 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C104D8471B89A9B100A52C77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C104D8481B89A9B100A52C77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C104D84A1B89A9B100A52C77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71DB138F92D7964FD24A3E9F /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "ZenAcupuncture/ZenAcupuncture-Prefix.pch";
+				INFOPLIST_FILE = ZenAcupuncture/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		C104D84B1B89A9B100A52C77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6252B04C6CBDA8F846A9FE4 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "ZenAcupuncture/ZenAcupuncture-Prefix.pch";
+				INFOPLIST_FILE = ZenAcupuncture/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		C104D84D1B89A9B100A52C77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ZenAcupunctureTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZenAcupuncture.app/ZenAcupuncture";
+			};
+			name = Debug;
+		};
+		C104D84E1B89A9B100A52C77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ZenAcupunctureTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZenAcupuncture.app/ZenAcupuncture";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C104D8211B89A9B100A52C77 /* Build configuration list for PBXProject "ZenAcupuncture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C104D8471B89A9B100A52C77 /* Debug */,
+				C104D8481B89A9B100A52C77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C104D8491B89A9B100A52C77 /* Build configuration list for PBXNativeTarget "ZenAcupuncture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C104D84A1B89A9B100A52C77 /* Debug */,
+				C104D84B1B89A9B100A52C77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C104D84C1B89A9B100A52C77 /* Build configuration list for PBXNativeTarget "ZenAcupunctureTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C104D84D1B89A9B100A52C77 /* Debug */,
+				C104D84E1B89A9B100A52C77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C104D81E1B89A9B100A52C77 /* Project object */;
+}
