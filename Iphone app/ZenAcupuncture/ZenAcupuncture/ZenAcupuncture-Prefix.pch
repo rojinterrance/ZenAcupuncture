@@ -1,0 +1,21 @@
+//
+//  ZenAcupuncture-Prefix.pch
+//  ZenAcupuncture
+//
+//  Created by Teja Swaroop on 23/08/15.
+//  Copyright (c) 2015 SaiTeja. All rights reserved.
+//
+
+#ifndef ZenAcupuncture_ZenAcupuncture_Prefix_pch
+#define ZenAcupuncture_ZenAcupuncture_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+    #import "MBProgressHUD.h"
+    #import "ReachAbility.h"
+    #import "ZASharedClass.h"
+    #import "AppConstants.h"
+
+
+#endif
