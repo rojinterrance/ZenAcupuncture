@@ -57,4 +57,6 @@ OBJC_EXPORT NSString *const MainStoryBoardiPad;
 
 OBJC_EXPORT NSString *const MainStoryBoardiPhone;
 
+OBJC_EXPORT NSString * const baseUrl;
+
 @end

@@ -138,19 +138,72 @@ static ZASharedClass * sharedClassObj = nil;
                             blue:((float) b / 255.0f)
                            alpha:1.0f];
 }
+#pragma mark - Fetch Response From Server
 
-- (void)fetchDataForLoginDetailsWith:(NSString*)urlString withCompletion:(ZAResponseArray)completionHandler
+- (void)fetchDataForLoginDetailsWith:(NSString*)urlString withCompletion:(ZAResponseXMLString)completionHandler
 {
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *resp, NSData *data, NSError *err)
+   NSString *escapedUrlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *aUrl = [NSURL URLWithString:escapedUrlString];
+    
+    NSLog(@"request : %@",[NSString stringWithFormat:@"%@",aUrl]);
+    
+    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL: aUrl] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *resp, NSData *data, NSError *err)
      {
          if(data != nil)
          {
-             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &err];
-              NSLog(@"json %@",json);
-            
-        completionHandler ([json mutableCopy],YES,[json valueForKey:@"error"]);
+              NSString *response = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+
+             //NSLog(@"resp %@",response);
+             
+             completionHandler(YES,response);
+        }
+         else
+         {
+             NSLog(@"eerrpr %@",[err localizedDescription]);
+            completionHandler(NO,@"Failure");
          }
      }];
+}
+
+#pragma mark - Parsing
+
+-(void)parseTheXML:(NSString*)serverDataString
+{
+    self.parserObj = [[NSXMLParser alloc] initWithData:(NSMutableData*)[serverDataString dataUsingEncoding:NSUTF8StringEncoding]];
+    [self.parserObj setDelegate: self];
+    [self.parserObj setShouldResolveExternalEntities: YES];
+    [self.parserObj parse];
+}
+
+- (void)parserDidStartDocument:(NSXMLParser *)parser
+{
+    self.responeDict =[[NSMutableDictionary alloc]init];
+}
+
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
+{
+    self.elementNameStr = elementName;
+}
+
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+{
+    if ([string isEqualToString:@"\n"])
+    {
+        return;
+    }
+    
+    if ([self.elementNameStr isEqualToString:@"code"])
+    {
+        [self.responeDict setValue:string forKey:@"code"];
+    }
+    else if ([self.elementNameStr isEqualToString:@"data"])
+    {
+        [self.responeDict setValue:string forKey:@"data"];
+    }
+}
+- (void)parserDidEndDocument:(NSXMLParser *)parser
+{
+    [self.parserdelegate reloadDataWithResponseDictionary:self.responeDict];
 }
 
 

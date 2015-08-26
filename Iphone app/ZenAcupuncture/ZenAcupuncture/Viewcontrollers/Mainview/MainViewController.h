@@ -10,9 +10,8 @@
 
 @interface MainViewController : UIViewController<UIGestureRecognizerDelegate>
 
-@property (weak, nonatomic) IBOutlet UIImageView *swedishImage;
-@property (weak, nonatomic) IBOutlet UIImageView *deepTissueImage;
-@property (weak, nonatomic) IBOutlet UIImageView *sportsImage;
-@property (weak, nonatomic) IBOutlet UIImageView *coupleImage;
+@property (weak, nonatomic) IBOutlet UIImageView *acupressureImage;
+@property (weak, nonatomic) IBOutlet UIImageView *cuppingImage;
+@property (weak, nonatomic) IBOutlet UIImageView *acupunctureImage;
 
 @end
