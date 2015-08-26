@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController<ParsedResponseDelegate,UITextFieldDelegate>
+
+@property (strong, nonatomic) IBOutlet UITextField *emailFeild;
+@property (strong, nonatomic) IBOutlet UITextField *passwordFeild;
+
+- (IBAction)registerMeAction:(id)sender;
+- (IBAction)loginMeAction:(id)sender;
 
 @end

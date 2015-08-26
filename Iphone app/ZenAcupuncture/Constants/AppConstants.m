@@ -18,5 +18,6 @@ NSString *const MainStoryBoardiPad = @"Main";
 
 NSString *const MainStoryBoardiPhone = @"Main";
 
+NSString * const baseUrl = @"http://spericorn.com/bodymassageapp/bodymassage.php";
 
 @end
