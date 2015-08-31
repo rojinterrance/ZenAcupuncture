@@ -10,6 +10,10 @@
 
 #import "LoginViewController.h"
 
+#import "AccunpunctureViewController.h"
+
+#import "PreviousOrdersViewController.h"
+
 @interface MainViewController ()
 
 @end
@@ -27,8 +31,8 @@
     
     UIBarButtonItem * leftButton = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
     self.navigationItem.leftBarButtonItem =leftButton;
-    
-    self.navigationItem.title= @"ZenAcupuncture";
+
+    self.navigationItem.title= HEADER_TITLE;
     
     [self setTapGuesterForImageView];
 }
@@ -36,7 +40,24 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    self.userIdStr = [[NSUserDefaults standardUserDefaults]valueForKey:@"userId"];
+    
+    if (self.userIdStr.length > 0)
+    {
+        UIBarButtonItem * rightButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"Appointments.png"]  style:UIBarButtonItemStylePlain target:self action:@selector(myBookings:)];
+        self.navigationItem.rightBarButtonItem =rightButton;
+    }
 }
+
+-(IBAction)myBookings:(id)sender
+{
+    PreviousOrdersViewController * previous = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"PreviousOrdersViewController"];
+    
+    [self.navigationController pushViewController:previous animated:YES];
+}
+
+
 -(void)setTapGuesterForImageView
 {
     UITapGestureRecognizer *acupressureguesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(acupressureguestureAction:)];
@@ -61,20 +82,42 @@
 - (void)acupressureguestureAction:(UITapGestureRecognizer *)recognizer
 {
     [[NSUserDefaults standardUserDefaults]setValue:@"Acupressure" forKey:@"SelectedCategory"];
-    [self proceedToLoginScreen];
+    
+    if (self.userIdStr.length > 0)
+    {
+            [self proceedToAppointmentScreen];
+    }
+    else
+    {
+           [self proceedToLoginScreen];
+    }
 }
 
 - (void)cuppingguestureAction:(UITapGestureRecognizer *)recognizer
 {
     [[NSUserDefaults standardUserDefaults]setValue:@"Cupping" forKey:@"SelectedCategory"];
-    [self proceedToLoginScreen];
+  
+    if (self.userIdStr.length > 0)
+    {
+        [self proceedToAppointmentScreen];
+    }
+    else
+    {
+        [self proceedToLoginScreen];
+    }
 }
-
 
 - (void)acupunctureguestureAction:(UITapGestureRecognizer *)recognizer
 {
     [[NSUserDefaults standardUserDefaults]setValue:@"Cupuncture" forKey:@"SelectedCategory"];
-    [self proceedToLoginScreen];
+    if (self.userIdStr.length > 0)
+    {
+        [self proceedToAppointmentScreen];
+    }
+    else
+    {
+        [self proceedToLoginScreen];
+    }
 }
 
 -(void)proceedToLoginScreen
@@ -83,6 +126,12 @@
     [self.navigationController pushViewController:loginObj animated:YES];
 }
 
+-(void)proceedToAppointmentScreen
+{
+    AccunpunctureViewController * appObj = (AccunpunctureViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"AccunpunctureViewController"];
+    [self.navigationController pushViewController:appObj animated:YES];
+
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

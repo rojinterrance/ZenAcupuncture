@@ -30,11 +30,12 @@ function deliver_response($format, $api_response){
         // Set HTTP Response Content Type
         header('Content-Type: application/xml; charset=utf-8');
  
-        // Format data into an XML response (This is only good at handling string data, not arrays)
-        $xml_response = '<?xml version="1.0" encoding="UTF-8"?>'."\n".
+        // Format data into an XML response (This is only good at handling string data, not arrays)		
+		$xml_response = '<?xml version="1.0" encoding="UTF-8"?>'."\n".
             '<response>'."\n".
             "\t".'<code>'.$api_response['code'].'</code>'."\n".
             "\t".'<data>'.$api_response['data'].'</data>'."\n".
+			"\t".'<userId>'.$api_response['userId'].'</userId>'."\n".
             '</response>';
  
         // Deliver formatted data
@@ -75,7 +76,8 @@ $api_response_code = array(
 $response['code'] = 0;
 $response['status'] = 404;
 $response['data'] = NULL;
- 
+$response['userId'] = '';
+
 // --- Step 2: Authorization
  
 // Optionally require user authentication
@@ -96,10 +98,12 @@ if( $_GET['function'] == "authentication" ) {
         $response['status'] = $api_response_code[ $response['code'] ]['HTTP Response'];
         $response['data'] = $api_response_code[ $response['code'] ]['Message'];
 		deliver_response($_GET['format'], $response); 
-    } else if(mysql_num_rows($result)) {
+    } else if(mysql_num_rows($result)) {		
 		$response['code'] = 1;
 		$response['status'] = $api_response_code[ $response['code'] ]['HTTP Response'];
 		$response['data'] = $api_response_code[ $response['code'] ]['Message'];
+		$value = mysql_fetch_object($result)->id;
+		$response['userId'] = $value;
 		deliver_response($_GET['format'], $response);
 	} else if (mysql_num_rows($result) == 0) {
 		$response['code'] = 4;
@@ -144,6 +148,7 @@ if($_GET['function'] == "signup" ) {
 		$response['code'] = 1;
 		$response['status'] = $api_response_code[ $response['code'] ]['HTTP Response'];
 		$response['data'] = $api_response_code[ $response['code'] ]['Message'];
+		$response['userId'] = mysql_insert_id();
 		deliver_response($_GET['format'], $response);
 	} else {
 		$response['code'] = 5;
@@ -198,6 +203,38 @@ if( $_GET['function'] == "register" ) {
 		$response['code'] = 5;
 		$response['status'] = $api_response_code[ $response['code'] ]['HTTP Response'];
 		$response['data'] = $api_response_code[ $response['code'] ]['Message'];
+		deliver_response($_GET['format'], $response);
+	}
+}
+
+if( $_GET['function'] == "getOrder" ) { 
+	$userid = $_GET['userid'];
+	
+	$link = mysql_connect('127.0.0.1','root','indian@1') or die('Cannot connect to the DB');
+	mysql_select_db('bodymassage',$link) or die('Cannot select the DB');
+	
+	$query = "select * from registerations where userid = '$userid'";
+	$result = mysql_query($query,$link) or die('Errant query:  '.$query);
+	
+	if(mysql_num_rows($result)) {
+	
+		$rows = array();
+		while($r = mysql_fetch_assoc($result)) {
+			 $rows[] = $r;
+		}
+		
+		$value = json_encode($rows);
+	
+		$response['code'] = 1;
+		$response['status'] = $api_response_code[ $response['code'] ]['HTTP Response'];		
+		$response['data'] = $value;
+		$response['userId'] = $userid;
+		deliver_response($_GET['format'], $response);
+	} else {
+		$response['code'] = 1;
+		$response['status'] = $api_response_code[ $response['code'] ]['HTTP Response'];
+		$response['data'] = 'No Record found';
+		$response['userId'] = $userid;
 		deliver_response($_GET['format'], $response);
 	}
 }

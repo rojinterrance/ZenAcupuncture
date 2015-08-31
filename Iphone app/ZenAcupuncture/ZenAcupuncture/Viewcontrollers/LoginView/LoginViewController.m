@@ -23,7 +23,7 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.title= @"ZenAcupuncture";
+    self.navigationItem.title= HEADER_TITLE;
     
     UIBarButtonItem * leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back.png"] style:UIBarButtonItemStylePlain target:self action:@selector(backTapped:)];
     self.navigationItem.leftBarButtonItem =leftButton;
@@ -32,8 +32,8 @@
 {
     [super viewWillAppear:animated];
     
-//    self.emailFeild.text =@"rojin.terrance@spericorn.com";
-//    self.passwordFeild.text = @"password";
+    self.emailFeild.text =@"rojin.terrance@spericorn.com";
+    self.passwordFeild.text = @"password";
 }
 -(IBAction)backTapped:(id)sender
 {
@@ -79,6 +79,8 @@
 - (void)reloadDataWithResponseDictionary:(NSMutableDictionary*)dictionary
 {
     [[ZASharedClass sharedInstance]dismissGlobalHUD];
+    
+   [ [NSUserDefaults standardUserDefaults]setValue:[dictionary valueForKey:@"userId"] forKey:@"userId"];
     
     if([[dictionary valueForKey:@"data"] isEqualToString:@"Success"])
     {

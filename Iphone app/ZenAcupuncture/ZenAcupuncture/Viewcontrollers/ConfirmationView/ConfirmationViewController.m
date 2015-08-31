@@ -8,6 +8,8 @@
 
 #import "ConfirmationViewController.h"
 
+#import "PreviousOrdersViewController.h"
+
 @interface ConfirmationViewController ()
 
 @end
@@ -17,7 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.title= @"ZenAcupuncture";
+    self.navigationItem.title= HEADER_TITLE;
     
     UIBarButtonItem * leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back.png"] style:UIBarButtonItemStylePlain target:self action:@selector(backTapped:)];
     self.navigationItem.leftBarButtonItem =leftButton;
@@ -35,5 +37,8 @@
 - (IBAction)reviewYourBooking:(id)sender {
     
     NSLog(@"%s",__func__);
+    PreviousOrdersViewController * previosView = (PreviousOrdersViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"PreviousOrdersViewController"];
+    
+    [self.navigationController pushViewController:previosView animated:YES];
 }
 @end

@@ -20,10 +20,10 @@
 {
     [super viewDidLoad];
     
-//    self.cardNumberFeild.text =@"5105105105105100";
-//    self.cvvFeild.text =@"123";
+    self.cardNumberFeild.text =@"5105105105105100";
+    self.cvvFeild.text =@"123";
     
-    self.navigationItem.title= @"ZenAcupuncture";
+    self.navigationItem.title=HEADER_TITLE;
     
     UIBarButtonItem * leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back.png"] style:UIBarButtonItemStylePlain target:self action:@selector(backTapped:)];
     self.navigationItem.leftBarButtonItem =leftButton;

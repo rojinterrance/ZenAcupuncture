@@ -19,7 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.title= @"ZenAcupuncture";
+    self.navigationItem.title= HEADER_TITLE;
     
     isHotel = YES;
     

@@ -20,7 +20,7 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.title= @"ZenAcupuncture";
+    self.navigationItem.title= HEADER_TITLE;
     
     UIBarButtonItem * leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back.png"] style:UIBarButtonItemStylePlain target:self action:@selector(backTapped:)];
     self.navigationItem.leftBarButtonItem =leftButton;

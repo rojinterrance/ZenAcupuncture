@@ -16,6 +16,8 @@
 		B74267011B8C7D42008D32E8 /* ConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B74267001B8C7D42008D32E8 /* ConfirmationViewController.m */; };
 		B74267041B8C8BD7008D32E8 /* Unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = B74267021B8C8BD7008D32E8 /* Unchecked.png */; };
 		B74267051B8C8BD7008D32E8 /* Checked.png in Resources */ = {isa = PBXBuildFile; fileRef = B74267031B8C8BD7008D32E8 /* Checked.png */; };
+		B789AB341B94312700861B94 /* PreviousOrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B789AB331B94312700861B94 /* PreviousOrdersViewController.m */; };
+		B789AB361B943A7900861B94 /* Appointments.png in Resources */ = {isa = PBXBuildFile; fileRef = B789AB351B943A7900861B94 /* Appointments.png */; };
 		C104D82C1B89A9B100A52C77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C104D82B1B89A9B100A52C77 /* main.m */; };
 		C104D82F1B89A9B100A52C77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C104D82E1B89A9B100A52C77 /* AppDelegate.m */; };
 		C104D8371B89A9B100A52C77 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C104D8361B89A9B100A52C77 /* Images.xcassets */; };
@@ -66,6 +68,9 @@
 		B74267001B8C7D42008D32E8 /* ConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmationViewController.m; sourceTree = "<group>"; };
 		B74267021B8C8BD7008D32E8 /* Unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unchecked.png; sourceTree = "<group>"; };
 		B74267031B8C8BD7008D32E8 /* Checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Checked.png; sourceTree = "<group>"; };
+		B789AB321B94312700861B94 /* PreviousOrdersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviousOrdersViewController.h; sourceTree = "<group>"; };
+		B789AB331B94312700861B94 /* PreviousOrdersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviousOrdersViewController.m; sourceTree = "<group>"; };
+		B789AB351B943A7900861B94 /* Appointments.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appointments.png; sourceTree = "<group>"; };
 		C104D8261B89A9B100A52C77 /* ZenAcupuncture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZenAcupuncture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C104D82A1B89A9B100A52C77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C104D82B1B89A9B100A52C77 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -119,6 +124,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B789AB2F1B9430FC00861B94 /* PreviousOrders */ = {
+			isa = PBXGroup;
+			children = (
+				B789AB321B94312700861B94 /* PreviousOrdersViewController.h */,
+				B789AB331B94312700861B94 /* PreviousOrdersViewController.m */,
+			);
+			path = PreviousOrders;
+			sourceTree = "<group>";
+		};
 		C104D81D1B89A9B100A52C77 = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +209,7 @@
 		C104D8571B89AE9D00A52C77 /* Viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				B789AB2F1B9430FC00861B94 /* PreviousOrders */,
 				C104D8581B89AE9D00A52C77 /* SpalshView */,
 				C15F017E1B8B8899000C4150 /* Mainview */,
 				C15F016F1B8B87D5000C4150 /* LoginView */,
@@ -307,6 +322,7 @@
 		C15F01861B8B8B75000C4150 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B789AB351B943A7900861B94 /* Appointments.png */,
 				C1214B881B8D5F6F00A761E2 /* Cupping.png */,
 				C1214B891B8D5F6F00A761E2 /* Acupressure.png */,
 				C1214B8A1B8D5F6F00A761E2 /* Acupuncture.png */,
@@ -438,6 +454,7 @@
 				B74266EE1B8C3D45008D32E8 /* ZenAcunpuncture.png in Resources */,
 				B74267041B8C8BD7008D32E8 /* Unchecked.png in Resources */,
 				C15F01941B8B914D000C4150 /* swedish.png in Resources */,
+				B789AB361B943A7900861B94 /* Appointments.png in Resources */,
 				B74267051B8C8BD7008D32E8 /* Checked.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,6 +514,7 @@
 				C15F01811B8B8899000C4150 /* MainViewController.m in Sources */,
 				C15F017A1B8B882D000C4150 /* LoginViewController.m in Sources */,
 				B74267011B8C7D42008D32E8 /* ConfirmationViewController.m in Sources */,
+				B789AB341B94312700861B94 /* PreviousOrdersViewController.m in Sources */,
 				C104D8701B89AEFF00A52C77 /* ZASharedClass.m in Sources */,
 				B74266FB1B8C7CBE008D32E8 /* AddressViewController.m in Sources */,
 				C104D86B1B89AEFF00A52C77 /* AppConstants.m in Sources */,

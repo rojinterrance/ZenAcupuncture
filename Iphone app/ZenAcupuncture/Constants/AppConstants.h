@@ -42,6 +42,8 @@
 
 #define APPLICATION_NAME @"Zen Acupuncture"
 
+#define HEADER_TITLE  @"Zen"
+
 #import <Foundation/Foundation.h>
 
 @interface AppConstants : NSObject

@@ -187,7 +187,7 @@ static ZASharedClass * sharedClassObj = nil;
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
-    if ([string isEqualToString:@"\n"])
+    if ([string isEqualToString:@"\n"] || [string isEqualToString:@"\n\t"])
     {
         return;
     }
@@ -199,6 +199,10 @@ static ZASharedClass * sharedClassObj = nil;
     else if ([self.elementNameStr isEqualToString:@"data"])
     {
         [self.responeDict setValue:string forKey:@"data"];
+    }
+    else if([self.elementNameStr isEqualToString:@"userId"])
+    {
+        [self.responeDict setValue:string forKey:@"userId"];
     }
 }
 - (void)parserDidEndDocument:(NSXMLParser *)parser
