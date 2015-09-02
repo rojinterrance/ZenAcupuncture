@@ -38,6 +38,26 @@
 		C15F01911B8B914D000C4150 /* Sports.png in Resources */ = {isa = PBXBuildFile; fileRef = C15F018C1B8B914D000C4150 /* Sports.png */; };
 		C15F01921B8B914D000C4150 /* DeepTissue.png in Resources */ = {isa = PBXBuildFile; fileRef = C15F018D1B8B914D000C4150 /* DeepTissue.png */; };
 		C15F01941B8B914D000C4150 /* swedish.png in Resources */ = {isa = PBXBuildFile; fileRef = C15F018F1B8B914D000C4150 /* swedish.png */; };
+		C17DC4A51B94C617004CE5B3 /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = C17DC4911B94C617004CE5B3 /* Icon-60.png */; };
+		C17DC4A61B94C617004CE5B3 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C17DC4921B94C617004CE5B3 /* Icon-60@2x.png */; };
+		C17DC4A71B94C617004CE5B3 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C17DC4931B94C617004CE5B3 /* Icon-60@3x.png */; };
+		C17DC4A81B94C617004CE5B3 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = C17DC4941B94C617004CE5B3 /* Icon-72.png */; };
+		C17DC4A91B94C617004CE5B3 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C17DC4951B94C617004CE5B3 /* Icon-72@2x.png */; };
+		C17DC4AA1B94C617004CE5B3 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = C17DC4961B94C617004CE5B3 /* Icon-76.png */; };
+		C17DC4AB1B94C617004CE5B3 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C17DC4971B94C617004CE5B3 /* Icon-76@2x.png */; };
+		C17DC4AC1B94C617004CE5B3 /* Icon-76@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C17DC4981B94C617004CE5B3 /* Icon-76@3x.png */; };
+		C17DC4AD1B94C617004CE5B3 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = C17DC4991B94C617004CE5B3 /* Icon-Small-50.png */; };
+		C17DC4AE1B94C617004CE5B3 /* Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C17DC49A1B94C617004CE5B3 /* Icon-Small-50@2x.png */; };
+		C17DC4AF1B94C617004CE5B3 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = C17DC49B1B94C617004CE5B3 /* Icon-Small.png */; };
+		C17DC4B01B94C617004CE5B3 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C17DC49C1B94C617004CE5B3 /* Icon-Small@2x.png */; };
+		C17DC4B11B94C617004CE5B3 /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C17DC49D1B94C617004CE5B3 /* Icon-Small@3x.png */; };
+		C17DC4B21B94C617004CE5B3 /* Icon-Spotlight-40.png in Resources */ = {isa = PBXBuildFile; fileRef = C17DC49E1B94C617004CE5B3 /* Icon-Spotlight-40.png */; };
+		C17DC4B31B94C617004CE5B3 /* Icon-Spotlight-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C17DC49F1B94C617004CE5B3 /* Icon-Spotlight-40@2x.png */; };
+		C17DC4B41B94C617004CE5B3 /* Icon-Spotlight-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C17DC4A01B94C617004CE5B3 /* Icon-Spotlight-40@3x.png */; };
+		C17DC4B51B94C617004CE5B3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C17DC4A11B94C617004CE5B3 /* Icon.png */; };
+		C17DC4B61B94C617004CE5B3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C17DC4A21B94C617004CE5B3 /* Icon@2x.png */; };
+		C17DC4B71B94C617004CE5B3 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = C17DC4A31B94C617004CE5B3 /* iTunesArtwork */; };
+		C17DC4B81B94C617004CE5B3 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = C17DC4A41B94C617004CE5B3 /* iTunesArtwork@2x */; };
 		E24E5A783968F71158D11734 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18071766BBDA397BBAB9B17E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +123,26 @@
 		C15F018C1B8B914D000C4150 /* Sports.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sports.png; sourceTree = "<group>"; };
 		C15F018D1B8B914D000C4150 /* DeepTissue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DeepTissue.png; sourceTree = "<group>"; };
 		C15F018F1B8B914D000C4150 /* swedish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swedish.png; sourceTree = "<group>"; };
+		C17DC4911B94C617004CE5B3 /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60.png"; sourceTree = "<group>"; };
+		C17DC4921B94C617004CE5B3 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		C17DC4931B94C617004CE5B3 /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
+		C17DC4941B94C617004CE5B3 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		C17DC4951B94C617004CE5B3 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		C17DC4961B94C617004CE5B3 /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
+		C17DC4971B94C617004CE5B3 /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
+		C17DC4981B94C617004CE5B3 /* Icon-76@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@3x.png"; sourceTree = "<group>"; };
+		C17DC4991B94C617004CE5B3 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		C17DC49A1B94C617004CE5B3 /* Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50@2x.png"; sourceTree = "<group>"; };
+		C17DC49B1B94C617004CE5B3 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		C17DC49C1B94C617004CE5B3 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		C17DC49D1B94C617004CE5B3 /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@3x.png"; sourceTree = "<group>"; };
+		C17DC49E1B94C617004CE5B3 /* Icon-Spotlight-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Spotlight-40.png"; sourceTree = "<group>"; };
+		C17DC49F1B94C617004CE5B3 /* Icon-Spotlight-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Spotlight-40@2x.png"; sourceTree = "<group>"; };
+		C17DC4A01B94C617004CE5B3 /* Icon-Spotlight-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Spotlight-40@3x.png"; sourceTree = "<group>"; };
+		C17DC4A11B94C617004CE5B3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		C17DC4A21B94C617004CE5B3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		C17DC4A31B94C617004CE5B3 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		C17DC4A41B94C617004CE5B3 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +362,7 @@
 		C15F01861B8B8B75000C4150 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C17DC4901B94C617004CE5B3 /* Icons */,
 				B789AB351B943A7900861B94 /* Appointments.png */,
 				C1214B881B8D5F6F00A761E2 /* Cupping.png */,
 				C1214B891B8D5F6F00A761E2 /* Acupressure.png */,
@@ -338,6 +379,33 @@
 				C15F01891B8B8F64000C4150 /* header.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		C17DC4901B94C617004CE5B3 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				C17DC4911B94C617004CE5B3 /* Icon-60.png */,
+				C17DC4921B94C617004CE5B3 /* Icon-60@2x.png */,
+				C17DC4931B94C617004CE5B3 /* Icon-60@3x.png */,
+				C17DC4941B94C617004CE5B3 /* Icon-72.png */,
+				C17DC4951B94C617004CE5B3 /* Icon-72@2x.png */,
+				C17DC4961B94C617004CE5B3 /* Icon-76.png */,
+				C17DC4971B94C617004CE5B3 /* Icon-76@2x.png */,
+				C17DC4981B94C617004CE5B3 /* Icon-76@3x.png */,
+				C17DC4991B94C617004CE5B3 /* Icon-Small-50.png */,
+				C17DC49A1B94C617004CE5B3 /* Icon-Small-50@2x.png */,
+				C17DC49B1B94C617004CE5B3 /* Icon-Small.png */,
+				C17DC49C1B94C617004CE5B3 /* Icon-Small@2x.png */,
+				C17DC49D1B94C617004CE5B3 /* Icon-Small@3x.png */,
+				C17DC49E1B94C617004CE5B3 /* Icon-Spotlight-40.png */,
+				C17DC49F1B94C617004CE5B3 /* Icon-Spotlight-40@2x.png */,
+				C17DC4A01B94C617004CE5B3 /* Icon-Spotlight-40@3x.png */,
+				C17DC4A11B94C617004CE5B3 /* Icon.png */,
+				C17DC4A21B94C617004CE5B3 /* Icon@2x.png */,
+				C17DC4A31B94C617004CE5B3 /* iTunesArtwork */,
+				C17DC4A41B94C617004CE5B3 /* iTunesArtwork@2x */,
+			);
+			path = Icons;
 			sourceTree = "<group>";
 		};
 		C5031DAB39C2D76BBE5C8B51 /* Pods */ = {
@@ -408,6 +476,7 @@
 				TargetAttributes = {
 					C104D8251B89A9B100A52C77 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 3Z554U4Q6A;
 					};
 					C104D83E1B89A9B100A52C77 = {
 						CreatedOnToolsVersion = 6.4;
@@ -439,22 +508,42 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C17DC4B51B94C617004CE5B3 /* Icon.png in Resources */,
+				C17DC4AE1B94C617004CE5B3 /* Icon-Small-50@2x.png in Resources */,
 				C15F01901B8B914D000C4150 /* subtitle.png in Resources */,
 				B74266F21B8C44DC008D32E8 /* background.png in Resources */,
 				C1214B8B1B8D5F6F00A761E2 /* Cupping.png in Resources */,
 				C104D8551B89AA0B00A52C77 /* Main.storyboard in Resources */,
+				C17DC4AA1B94C617004CE5B3 /* Icon-76.png in Resources */,
 				C15F01911B8B914D000C4150 /* Sports.png in Resources */,
+				C17DC4A81B94C617004CE5B3 /* Icon-72.png in Resources */,
+				C17DC4B61B94C617004CE5B3 /* Icon@2x.png in Resources */,
+				C17DC4AF1B94C617004CE5B3 /* Icon-Small.png in Resources */,
 				C15F01921B8B914D000C4150 /* DeepTissue.png in Resources */,
 				C104D8541B89AA0B00A52C77 /* LaunchScreen.xib in Resources */,
 				C15F018A1B8B8F64000C4150 /* header.png in Resources */,
 				C104D8371B89A9B100A52C77 /* Images.xcassets in Resources */,
+				C17DC4B41B94C617004CE5B3 /* Icon-Spotlight-40@3x.png in Resources */,
+				C17DC4A91B94C617004CE5B3 /* Icon-72@2x.png in Resources */,
 				C1214B8C1B8D5F6F00A761E2 /* Acupressure.png in Resources */,
+				C17DC4AC1B94C617004CE5B3 /* Icon-76@3x.png in Resources */,
 				C1214B8D1B8D5F6F00A761E2 /* Acupuncture.png in Resources */,
 				B74266F01B8C41A9008D32E8 /* back.png in Resources */,
+				C17DC4B11B94C617004CE5B3 /* Icon-Small@3x.png in Resources */,
 				B74266EE1B8C3D45008D32E8 /* ZenAcunpuncture.png in Resources */,
 				B74267041B8C8BD7008D32E8 /* Unchecked.png in Resources */,
+				C17DC4B21B94C617004CE5B3 /* Icon-Spotlight-40.png in Resources */,
+				C17DC4A51B94C617004CE5B3 /* Icon-60.png in Resources */,
 				C15F01941B8B914D000C4150 /* swedish.png in Resources */,
+				C17DC4A71B94C617004CE5B3 /* Icon-60@3x.png in Resources */,
+				C17DC4B01B94C617004CE5B3 /* Icon-Small@2x.png in Resources */,
+				C17DC4B31B94C617004CE5B3 /* Icon-Spotlight-40@2x.png in Resources */,
+				C17DC4B81B94C617004CE5B3 /* iTunesArtwork@2x in Resources */,
+				C17DC4AD1B94C617004CE5B3 /* Icon-Small-50.png in Resources */,
+				C17DC4B71B94C617004CE5B3 /* iTunesArtwork in Resources */,
 				B789AB361B943A7900861B94 /* Appointments.png in Resources */,
+				C17DC4A61B94C617004CE5B3 /* Icon-60@2x.png in Resources */,
+				C17DC4AB1B94C617004CE5B3 /* Icon-76@2x.png in Resources */,
 				B74267051B8C8BD7008D32E8 /* Checked.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -647,10 +736,13 @@
 			baseConfigurationReference = 71DB138F92D7964FD24A3E9F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CHANNIE AMATO (3Z554U4Q6A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHANNIE AMATO (3Z554U4Q6A)";
 				GCC_PREFIX_HEADER = "ZenAcupuncture/ZenAcupuncture-Prefix.pch";
 				INFOPLIST_FILE = ZenAcupuncture/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3ffa3fb4-ca43-422c-a0a9-703ada421771";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -660,10 +752,13 @@
 			baseConfigurationReference = A6252B04C6CBDA8F846A9FE4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CHANNIE AMATO (3Z554U4Q6A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHANNIE AMATO (3Z554U4Q6A)";
 				GCC_PREFIX_HEADER = "ZenAcupuncture/ZenAcupuncture-Prefix.pch";
 				INFOPLIST_FILE = ZenAcupuncture/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3ffa3fb4-ca43-422c-a0a9-703ada421771";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -29,14 +29,53 @@
     self.lengthSegment.selectedSegmentIndex = 0;
     self.genderStr =@"Either";
     self.lenghtStr=@"60 min";
+    
+    self.pkrView.hidden = YES;
+    
+    
+    UITapGestureRecognizer * dateAndTimeSelection = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(chnageDateAndTime)];
+    dateAndTimeSelection.numberOfTapsRequired = 1;
+    [self.dateFeild addGestureRecognizer:dateAndTimeSelection];
+    [self.timeFeild addGestureRecognizer:dateAndTimeSelection];
 }
+
+-(void)chnageDateAndTime
+{
+    self.pkrView.hidden = NO;
+}
+
 -(IBAction)backTapped:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (IBAction)datePlrClk:(id)sender {
+    NSDate *date = _datePkr.date;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateStyle:NSDateFormatterLongStyle];
+    [formatter setTimeStyle:NSDateFormatterNoStyle];
+    [formatter setDateFormat:@"dd-MM-YYYY HH:mm a"];
+    
+    _formattedString = [formatter stringFromDate:date];
+    NSArray * array = [_formattedString componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString * day = [array firstObject];
+    
+    NSString * time = [array objectAtIndex:1];
+    NSString * amorpm = [array lastObject];
+    NSString * totalTime = [NSString stringWithFormat:@"%@ %@",time,amorpm];
+
+    
+    [self.dateFeild setText:day];
+    [self.timeFeild setText:totalTime];
+}
+
+- (IBAction)doneClk:(id)sender {
+    self.pkrView.hidden = YES;
 }
 
 - (IBAction)genderSelectionAction:(id)sender {
@@ -95,6 +134,7 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
+    self.pkrView.hidden =YES;
 }
 
 - (IBAction)nextAction:(id)sender
@@ -121,9 +161,21 @@
         UIAlertView * alert = [[UIAlertView alloc]initWithTitle:APPLICATION_NAME message:@"Please enter Appointment Date and Time" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
     }
-    
-   
+}
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+//    if (textField == self.dateFeild)
+//    {
+//        [textField resignFirstResponder];
+//    }
+//    else if (textField == self.timeFeild)
+//    {
+//        [textField resignFirstResponder];
+//    }
+    
+    [self chnageDateAndTime];
+    return NO;
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{

@@ -20,6 +20,16 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *genderSegment;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *lengthSegment;
 
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *barBtnDone;
+@property (strong, nonatomic) IBOutlet UIView *pkrView;
+@property (strong, nonatomic) IBOutlet UIDatePicker *datePkr;
+@property (strong, nonatomic) IBOutlet UIToolbar *toolBar;
+@property (strong, nonatomic) NSString * formattedString;
+@property (nonatomic, strong) NSString * timeString;
+
+- (IBAction)datePlrClk:(id)sender;
+- (IBAction)doneClk:(id)sender;
+
 - (IBAction)genderSelectionAction:(id)sender;
 - (IBAction)lengthSelectionAction:(id)sender;
 - (IBAction)nextAction:(id)sender;

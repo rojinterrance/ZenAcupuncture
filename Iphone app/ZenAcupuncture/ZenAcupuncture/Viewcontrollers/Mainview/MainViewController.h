@@ -10,7 +10,7 @@
 
 @interface MainViewController : UIViewController<UIGestureRecognizerDelegate>
 
-@property (nonatomic, strong)                   NSString * userIdStr;
+@property (nonatomic, strong) NSString * userIdStr;
 @property (weak, nonatomic) IBOutlet UIImageView *acupressureImage;
 @property (weak, nonatomic) IBOutlet UIImageView *cuppingImage;
 @property (weak, nonatomic) IBOutlet UIImageView *acupunctureImage;

@@ -14,6 +14,8 @@
 
 #import "PreviousOrdersViewController.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 @interface MainViewController ()
 
 @end
@@ -35,6 +37,15 @@
     self.navigationItem.title= HEADER_TITLE;
     
     [self setTapGuesterForImageView];
+    
+    [self.acupressureImage.layer setBorderColor: [[UIColor blackColor] CGColor]];
+    [self.acupressureImage.layer setBorderWidth: 2.0];
+    
+    [self.cuppingImage.layer setBorderColor: [[UIColor blackColor] CGColor]];
+    [self.cuppingImage.layer setBorderWidth: 2.0];
+    
+    [self.acupunctureImage.layer setBorderColor: [[UIColor blackColor] CGColor]];
+    [self.acupunctureImage.layer setBorderWidth: 2.0];
 }
 
 -(void)viewWillAppear:(BOOL)animated
