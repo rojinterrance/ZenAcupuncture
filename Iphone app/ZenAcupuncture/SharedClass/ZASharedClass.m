@@ -1,6 +1,6 @@
 //
 //  SharedClass.m
-//  HowBe
+//  ZenAcupuncture
 //
 //  Created by Teja Swaroop on 16/11/14.
 //  Copyright (c) 2014 SaiTeja. All rights reserved.
@@ -40,6 +40,7 @@ static ZASharedClass * sharedClassObj = nil;
     {
         self.window = [[[UIApplication sharedApplication] windows] lastObject];
         self.appdelegateObj = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+        self.inputValuesDict = [[NSMutableDictionary alloc]init];
     }
     
     return self;

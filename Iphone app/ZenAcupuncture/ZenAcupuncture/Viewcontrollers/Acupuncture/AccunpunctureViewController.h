@@ -10,7 +10,6 @@
 
 @interface AccunpunctureViewController : UIViewController<UITextFieldDelegate>
 
-@property(nonatomic, strong) NSMutableDictionary *inputFeildsDict;
 @property(nonatomic, strong) NSString * genderStr;
 @property(nonatomic, strong) NSString * lenghtStr;
 

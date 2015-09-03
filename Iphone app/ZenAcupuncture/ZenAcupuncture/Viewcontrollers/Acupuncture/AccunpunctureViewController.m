@@ -10,6 +10,8 @@
 
 #import "AddressViewController.h"
 
+#import "LoginViewController.h"
+
 @interface AccunpunctureViewController ()
 
 @end
@@ -139,41 +141,43 @@
 
 - (IBAction)nextAction:(id)sender
 {
-    self.inputFeildsDict = [NSMutableDictionary new];
-    
     if([self.dateFeild.text length] > 0  && [self.timeFeild.text length] > 0)
     {
-        [self.inputFeildsDict setValue:self.dateFeild.text forKey:@"date"];
-        [self.inputFeildsDict setValue:self.timeFeild.text forKey:@"time"];
-        [self.inputFeildsDict setValue:self.genderStr forKey:@"gender"];
-        [self.inputFeildsDict setValue:self.lenghtStr forKey:@"length"];
-        [self.inputFeildsDict setValue:self.notesFeild.text forKey:@"notes"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.dateFeild.text forKey:@"date"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.timeFeild.text forKey:@"time"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.genderStr forKey:@"gender"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.lenghtStr forKey:@"length"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.notesFeild.text forKey:@"notes"];
         
-        NSLog(@"self.inputFeildsDict %@",self.inputFeildsDict);
+        NSLog(@"self.inputFeildsDict %@",[[ZASharedClass sharedInstance]inputValuesDict]);
         
-        AddressViewController * addView = (AddressViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"AddressViewController"];
-        [addView setInputsDict:self.inputFeildsDict];
-        [self.navigationController pushViewController:addView animated:YES];
-        
+        if ([[[NSUserDefaults standardUserDefaults]valueForKey:@"userId"] length ] > 0)
+        {
+            AddressViewController * addView = (AddressViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"AddressViewController"];
+            [self.navigationController pushViewController:addView animated:YES];
+        }
+        else
+        {
+            [self proceedToLoginScreen];
+        }
     }
     else{
         
         UIAlertView * alert = [[UIAlertView alloc]initWithTitle:APPLICATION_NAME message:@"Please enter Appointment Date and Time" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
     }
+
+    
+   }
+
+-(void)proceedToLoginScreen
+{
+    LoginViewController * loginObj = (LoginViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    [self.navigationController pushViewController:loginObj animated:YES];
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-//    if (textField == self.dateFeild)
-//    {
-//        [textField resignFirstResponder];
-//    }
-//    else if (textField == self.timeFeild)
-//    {
-//        [textField resignFirstResponder];
-//    }
-    
     [self chnageDateAndTime];
     return NO;
 }

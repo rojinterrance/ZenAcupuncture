@@ -21,7 +21,7 @@
     [super viewDidLoad];
     self.navigationItem.title= HEADER_TITLE;
     
-    UIBarButtonItem * leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back.png"] style:UIBarButtonItemStylePlain target:self action:@selector(backTapped:)];
+    UIBarButtonItem * leftButton = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
     self.navigationItem.leftBarButtonItem =leftButton;
 }
 -(IBAction)backTapped:(id)sender

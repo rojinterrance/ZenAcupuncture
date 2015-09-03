@@ -27,6 +27,12 @@
 		C104D85B1B89AE9D00A52C77 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C104D85A1B89AE9D00A52C77 /* ViewController.m */; };
 		C104D86B1B89AEFF00A52C77 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C104D85E1B89AEFF00A52C77 /* AppConstants.m */; };
 		C104D8701B89AEFF00A52C77 /* ZASharedClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C104D86A1B89AEFF00A52C77 /* ZASharedClass.m */; };
+		C11182BD1B98B8C9001BDD16 /* ApptourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C11182BC1B98B8C9001BDD16 /* ApptourViewController.m */; };
+		C11182C41B98BC04001BDD16 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C11182BF1B98BC04001BDD16 /* 1.jpg */; };
+		C11182C51B98BC04001BDD16 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C11182C01B98BC04001BDD16 /* 2.jpg */; };
+		C11182C61B98BC04001BDD16 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C11182C11B98BC04001BDD16 /* 3.jpg */; };
+		C11182C71B98BC04001BDD16 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C11182C21B98BC04001BDD16 /* 4.jpg */; };
+		C11182C81B98BC04001BDD16 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C11182C31B98BC04001BDD16 /* 5.jpg */; };
 		C1214B8B1B8D5F6F00A761E2 /* Cupping.png in Resources */ = {isa = PBXBuildFile; fileRef = C1214B881B8D5F6F00A761E2 /* Cupping.png */; };
 		C1214B8C1B8D5F6F00A761E2 /* Acupressure.png in Resources */ = {isa = PBXBuildFile; fileRef = C1214B891B8D5F6F00A761E2 /* Acupressure.png */; };
 		C1214B8D1B8D5F6F00A761E2 /* Acupuncture.png in Resources */ = {isa = PBXBuildFile; fileRef = C1214B8A1B8D5F6F00A761E2 /* Acupuncture.png */; };
@@ -109,6 +115,13 @@
 		C104D85E1B89AEFF00A52C77 /* AppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConstants.m; sourceTree = "<group>"; };
 		C104D8691B89AEFF00A52C77 /* ZASharedClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZASharedClass.h; sourceTree = "<group>"; };
 		C104D86A1B89AEFF00A52C77 /* ZASharedClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZASharedClass.m; sourceTree = "<group>"; };
+		C11182BB1B98B8C9001BDD16 /* ApptourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApptourViewController.h; sourceTree = "<group>"; };
+		C11182BC1B98B8C9001BDD16 /* ApptourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApptourViewController.m; sourceTree = "<group>"; };
+		C11182BF1B98BC04001BDD16 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		C11182C01B98BC04001BDD16 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		C11182C11B98BC04001BDD16 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		C11182C21B98BC04001BDD16 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		C11182C31B98BC04001BDD16 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
 		C1214B881B8D5F6F00A761E2 /* Cupping.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cupping.png; sourceTree = "<group>"; };
 		C1214B891B8D5F6F00A761E2 /* Acupressure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Acupressure.png; sourceTree = "<group>"; };
 		C1214B8A1B8D5F6F00A761E2 /* Acupuncture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Acupuncture.png; sourceTree = "<group>"; };
@@ -249,6 +262,7 @@
 		C104D8571B89AE9D00A52C77 /* Viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				C11182BA1B98B897001BDD16 /* ApptourView */,
 				B789AB2F1B9430FC00861B94 /* PreviousOrders */,
 				C104D8581B89AE9D00A52C77 /* SpalshView */,
 				C15F017E1B8B8899000C4150 /* Mainview */,
@@ -295,6 +309,27 @@
 			);
 			path = SharedClass;
 			sourceTree = SOURCE_ROOT;
+		};
+		C11182BA1B98B897001BDD16 /* ApptourView */ = {
+			isa = PBXGroup;
+			children = (
+				C11182BB1B98B8C9001BDD16 /* ApptourViewController.h */,
+				C11182BC1B98B8C9001BDD16 /* ApptourViewController.m */,
+			);
+			path = ApptourView;
+			sourceTree = "<group>";
+		};
+		C11182BE1B98BC04001BDD16 /* Apptour */ = {
+			isa = PBXGroup;
+			children = (
+				C11182BF1B98BC04001BDD16 /* 1.jpg */,
+				C11182C01B98BC04001BDD16 /* 2.jpg */,
+				C11182C11B98BC04001BDD16 /* 3.jpg */,
+				C11182C21B98BC04001BDD16 /* 4.jpg */,
+				C11182C31B98BC04001BDD16 /* 5.jpg */,
+			);
+			path = Apptour;
+			sourceTree = "<group>";
 		};
 		C15F016F1B8B87D5000C4150 /* LoginView */ = {
 			isa = PBXGroup;
@@ -362,6 +397,7 @@
 		C15F01861B8B8B75000C4150 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C11182BE1B98BC04001BDD16 /* Apptour */,
 				C17DC4901B94C617004CE5B3 /* Icons */,
 				B789AB351B943A7900861B94 /* Appointments.png */,
 				C1214B881B8D5F6F00A761E2 /* Cupping.png */,
@@ -511,6 +547,7 @@
 				C17DC4B51B94C617004CE5B3 /* Icon.png in Resources */,
 				C17DC4AE1B94C617004CE5B3 /* Icon-Small-50@2x.png in Resources */,
 				C15F01901B8B914D000C4150 /* subtitle.png in Resources */,
+				C11182C81B98BC04001BDD16 /* 5.jpg in Resources */,
 				B74266F21B8C44DC008D32E8 /* background.png in Resources */,
 				C1214B8B1B8D5F6F00A761E2 /* Cupping.png in Resources */,
 				C104D8551B89AA0B00A52C77 /* Main.storyboard in Resources */,
@@ -526,16 +563,20 @@
 				C17DC4B41B94C617004CE5B3 /* Icon-Spotlight-40@3x.png in Resources */,
 				C17DC4A91B94C617004CE5B3 /* Icon-72@2x.png in Resources */,
 				C1214B8C1B8D5F6F00A761E2 /* Acupressure.png in Resources */,
+				C11182C71B98BC04001BDD16 /* 4.jpg in Resources */,
 				C17DC4AC1B94C617004CE5B3 /* Icon-76@3x.png in Resources */,
 				C1214B8D1B8D5F6F00A761E2 /* Acupuncture.png in Resources */,
 				B74266F01B8C41A9008D32E8 /* back.png in Resources */,
 				C17DC4B11B94C617004CE5B3 /* Icon-Small@3x.png in Resources */,
 				B74266EE1B8C3D45008D32E8 /* ZenAcunpuncture.png in Resources */,
+				C11182C61B98BC04001BDD16 /* 3.jpg in Resources */,
 				B74267041B8C8BD7008D32E8 /* Unchecked.png in Resources */,
 				C17DC4B21B94C617004CE5B3 /* Icon-Spotlight-40.png in Resources */,
 				C17DC4A51B94C617004CE5B3 /* Icon-60.png in Resources */,
 				C15F01941B8B914D000C4150 /* swedish.png in Resources */,
+				C11182C51B98BC04001BDD16 /* 2.jpg in Resources */,
 				C17DC4A71B94C617004CE5B3 /* Icon-60@3x.png in Resources */,
+				C11182C41B98BC04001BDD16 /* 1.jpg in Resources */,
 				C17DC4B01B94C617004CE5B3 /* Icon-Small@2x.png in Resources */,
 				C17DC4B31B94C617004CE5B3 /* Icon-Spotlight-40@2x.png in Resources */,
 				C17DC4B81B94C617004CE5B3 /* iTunesArtwork@2x in Resources */,
@@ -607,6 +648,7 @@
 				C104D8701B89AEFF00A52C77 /* ZASharedClass.m in Sources */,
 				B74266FB1B8C7CBE008D32E8 /* AddressViewController.m in Sources */,
 				C104D86B1B89AEFF00A52C77 /* AppConstants.m in Sources */,
+				C11182BD1B98B8C9001BDD16 /* ApptourViewController.m in Sources */,
 				C15F017D1B8B885F000C4150 /* RegisterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

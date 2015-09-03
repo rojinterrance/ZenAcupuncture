@@ -8,8 +8,6 @@
 
 #import "MainViewController.h"
 
-#import "LoginViewController.h"
-
 #import "AccunpunctureViewController.h"
 
 #import "PreviousOrdersViewController.h"
@@ -93,48 +91,20 @@
 - (void)acupressureguestureAction:(UITapGestureRecognizer *)recognizer
 {
     [[NSUserDefaults standardUserDefaults]setValue:@"Acupressure" forKey:@"SelectedCategory"];
-    
-    if (self.userIdStr.length > 0)
-    {
-            [self proceedToAppointmentScreen];
-    }
-    else
-    {
-           [self proceedToLoginScreen];
-    }
+
+    [self proceedToAppointmentScreen];
 }
 
 - (void)cuppingguestureAction:(UITapGestureRecognizer *)recognizer
 {
     [[NSUserDefaults standardUserDefaults]setValue:@"Cupping" forKey:@"SelectedCategory"];
-  
-    if (self.userIdStr.length > 0)
-    {
-        [self proceedToAppointmentScreen];
-    }
-    else
-    {
-        [self proceedToLoginScreen];
-    }
+   [self proceedToAppointmentScreen];
 }
 
 - (void)acupunctureguestureAction:(UITapGestureRecognizer *)recognizer
 {
     [[NSUserDefaults standardUserDefaults]setValue:@"Cupuncture" forKey:@"SelectedCategory"];
-    if (self.userIdStr.length > 0)
-    {
-        [self proceedToAppointmentScreen];
-    }
-    else
-    {
-        [self proceedToLoginScreen];
-    }
-}
-
--(void)proceedToLoginScreen
-{
-    LoginViewController * loginObj = (LoginViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"LoginViewController"];
-    [self.navigationController pushViewController:loginObj animated:YES];
+    [self proceedToAppointmentScreen];
 }
 
 -(void)proceedToAppointmentScreen

@@ -10,8 +10,7 @@
 
 #import "RegisterViewController.h"
 
-#import "AccunpunctureViewController.h"
-
+#import "AddressViewController.h"
 
 @interface LoginViewController ()
 
@@ -86,8 +85,8 @@
     {
         NSLog(@"login Scuccess");
         
-        AccunpunctureViewController * accView = (AccunpunctureViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"AccunpunctureViewController"];
-        [self.navigationController pushViewController:accView animated:YES];
+        AddressViewController * addressView = (AddressViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"AddressViewController"];
+        [self.navigationController pushViewController:addressView animated:YES];
     }
     else
     {

@@ -10,6 +10,10 @@
 
 #import "Stripe.h"
 
+#import "ApptourViewController.h"
+
+#import "ViewController.h"
+
 NSString * const StripePublishableKey = @"pk_test_6pRNASCoBOKtIshFeQd4XMUh";
 
 @interface AppDelegate ()
@@ -20,9 +24,24 @@ NSString * const StripePublishableKey = @"pk_test_6pRNASCoBOKtIshFeQd4XMUh";
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     
     [Stripe setDefaultPublishableKey:StripePublishableKey];
+    
+    if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"isFirstLaunch"]isEqualToString:@"NotFirst"])
+    {
+        ViewController *mainView = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"ViewController"];
+        UINavigationController * mainNavView = [[UINavigationController alloc]initWithRootViewController:mainView];
+        
+        self.window.rootViewController = mainNavView;
+    }
+    else
+    {
+        [[NSUserDefaults standardUserDefaults]setValue:@"NotFirst" forKey:@"isFirstLaunch"];
+        
+         ApptourViewController *apptourView = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"ApptourViewController"];
+        UINavigationController * NavapptourView = [[UINavigationController alloc]initWithRootViewController:apptourView];
+        self.window.rootViewController = NavapptourView;
+    }
     
     return YES;
 }

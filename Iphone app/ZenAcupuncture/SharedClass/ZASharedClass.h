@@ -1,6 +1,6 @@
 //
 //  SharedClass.h
-//
+//ZenAcupuncture
 //
 //  Created by Teja Swaroop on 16/11/14.
 //  Copyright (c) 2014 SaiTeja. All rights reserved.
@@ -24,6 +24,8 @@ typedef void(^ZAResponseDictionary)(NSMutableDictionary * productDetDict, BOOL s
 @interface ZASharedClass : NSObject<NSXMLParserDelegate>
 
 #pragma mark - Properties
+
+@property(nonatomic, strong) NSMutableDictionary * inputValuesDict;
 
 @property(nonatomic, strong) NSMutableDictionary * responeDict;
 @property(nonatomic, strong) NSString * elementNameStr;

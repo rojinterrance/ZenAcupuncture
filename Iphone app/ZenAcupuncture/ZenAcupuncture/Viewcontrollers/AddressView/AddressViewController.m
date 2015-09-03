@@ -47,7 +47,7 @@
 
 - (IBAction)addAndContinueAction:(id)sender
 {
-    NSLog(@"inputs %@",self.inputsDict);
+    NSLog(@"inputs %@",[[ZASharedClass sharedInstance]inputValuesDict]);
     
     NSString * hotelStr;
     
@@ -62,20 +62,19 @@
     
     if ([self.addressFeild.text length] > 0  &&  [self.firstNameFeild.text length] > 0 )
     {
-        [self.inputsDict setValue: self.addressFeild.text forKey:@"addressFeild"];
-        [self.inputsDict setValue: self.firstNameFeild.text forKey:@"firstNameFeild"];
-        [self.inputsDict setValue:self.lastNameFeild.text forKey:@"lastNameFeild"];
-        [self.inputsDict setValue:self.deliverAddFeild.text forKey:@"deliverAddFeild"];
-        [self.inputsDict setValue: self.roomFeild.text forKey:@"roomFeild"];
-        [self.inputsDict setValue:self.cityFeild.text forKey:@"cityFeild"];
-        [self.inputsDict setValue:self.stateFeild.text forKey:@"stateFeild"];
-        [self.inputsDict setValue:self.zipCodefeild.text forKey:@"zipCodefeild"];
-        [self.inputsDict setValue:self.phoneFeild.text forKey:@"phoneFeild"];
-        [self.inputsDict setValue:self.parkingFeild.text forKey:@"parkingFeild"];
-        [self.inputsDict setValue:hotelStr forKey:@"isHotel"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue: self.addressFeild.text forKey:@"addressFeild"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue: self.firstNameFeild.text forKey:@"firstNameFeild"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.lastNameFeild.text forKey:@"lastNameFeild"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.deliverAddFeild.text forKey:@"deliverAddFeild"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue: self.roomFeild.text forKey:@"roomFeild"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.cityFeild.text forKey:@"cityFeild"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.stateFeild.text forKey:@"stateFeild"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.zipCodefeild.text forKey:@"zipCodefeild"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.phoneFeild.text forKey:@"phoneFeild"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.parkingFeild.text forKey:@"parkingFeild"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:hotelStr forKey:@"isHotel"];
         
         PaymentViewController * paymentView = (PaymentViewController*) [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"PaymentViewController"];
-        [paymentView setInputFeildsDict:self.inputsDict];
         [self.navigationController pushViewController:paymentView animated:YES];
     }
     else

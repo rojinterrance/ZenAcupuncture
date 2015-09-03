@@ -13,7 +13,6 @@
     BOOL isHotel;
 }
 
-@property(strong, nonatomic) NSMutableDictionary * inputsDict;
 @property (strong, nonatomic) IBOutlet UIButton *ishotelBtn;
 
 @property (strong, nonatomic) IBOutlet UITextField *addressFeild;

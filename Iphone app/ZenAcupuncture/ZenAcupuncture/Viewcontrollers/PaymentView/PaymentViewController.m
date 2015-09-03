@@ -43,15 +43,15 @@
 {
     if ([self.cardNumberFeild.text length] > 0 && [self.cvvFeild.text length] >  0 && [self.monthFeild.text length]> 0 && [self.yearFeild.text length] > 0)
     {
-        [ self.inputFeildsDict setValue:self.cardHolderNameFeild.text forKey:@"cardHolderNameFeild"];
-        [self.inputFeildsDict setValue:self.cardNumberFeild.text forKey:@"cardNumberFeild"];
-        [self.inputFeildsDict setValue:self.cvvFeild.text forKey:@"cvvFeild"];
-        [self.inputFeildsDict setValue:self.monthFeild.text forKey:@"monthFeild"];
-        [self.inputFeildsDict setValue: self.yearFeild.text forKey:@"yearFeild"];
-        [self.inputFeildsDict setValue:self.billingAddres.text forKey:@"billingAddres"];
-        [self.inputFeildsDict setValue:self.cityFeild.text forKey:@"cityFeild"];
-        [self.inputFeildsDict setValue:self.billingStateFeild.text forKey:@"billingStateFeild"];
-        [self.inputFeildsDict setValue:self.billingZipCodeFeild.text forKey:@"billingZipCodeFeild"];
+        [[[ZASharedClass sharedInstance]inputValuesDict]  setValue:self.cardHolderNameFeild.text forKey:@"cardHolderNameFeild"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.cardNumberFeild.text forKey:@"cardNumberFeild"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.cvvFeild.text forKey:@"cvvFeild"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.monthFeild.text forKey:@"monthFeild"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue: self.yearFeild.text forKey:@"yearFeild"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.billingAddres.text forKey:@"billingAddres"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.cityFeild.text forKey:@"cityFeild"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.billingStateFeild.text forKey:@"billingStateFeild"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.billingZipCodeFeild.text forKey:@"billingZipCodeFeild"];
         
         // NSLog(@"inputFeildsDict :%@",self.inputFeildsDict);
         
@@ -66,35 +66,35 @@
 
 -(void)proceedForPayment
 {
-    NSString * appointmentDate = [self.inputFeildsDict valueForKey:@"date"];
-    NSString * appointTime= [self.inputFeildsDict valueForKey:@"time"];
-    NSString * therapistGender= [self.inputFeildsDict valueForKey:@"gender"];
-    NSString * sessionLength= [self.inputFeildsDict valueForKey:@"length"];
-    NSString * note= [self.inputFeildsDict valueForKey:@"notes"];
+    NSString * appointmentDate = [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"date"];
+    NSString * appointTime= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"time"];
+    NSString * therapistGender= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"gender"];
+    NSString * sessionLength= [[[ZASharedClass sharedInstance]inputValuesDict]valueForKey:@"length"];
+    NSString * note= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"notes"];
 #warning teja Check  *** userId
     NSString * userId= @"1";
-    NSString * addressLabel= [self.inputFeildsDict valueForKey:@"addressFeild"];
+    NSString * addressLabel= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"addressFeild"];
     NSString * isActive= @"1";
-    NSString * firstName= [self.inputFeildsDict valueForKey:@"firstNameFeild"];
-    NSString * lastName= [self.inputFeildsDict valueForKey:@"lastNameFeild"];
-    NSString * deliveryAddress = [self.inputFeildsDict valueForKey:@"addressFeild"];
-    NSString * apt_suit_room= [self.inputFeildsDict valueForKey:@"roomFeild"];
-    NSString * city= [self.inputFeildsDict valueForKey:@"cityFeild"];
-    NSString * state= [self.inputFeildsDict valueForKey:@"stateFeild"];
-    NSString * zip= [self.inputFeildsDict valueForKey:@"zipCodeFeild"];
-    NSString * phone= [self.inputFeildsDict valueForKey:@"phoneFeild"];
-    NSString * parkingInstruction = [self.inputFeildsDict valueForKey:@"parkingFeild"];
-    NSString * isHotel= [self.inputFeildsDict valueForKey:@"isHotel"];
+    NSString * firstName= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"firstNameFeild"];
+    NSString * lastName= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"lastNameFeild"];
+    NSString * deliveryAddress = [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"addressFeild"];
+    NSString * apt_suit_room= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"roomFeild"];
+    NSString * city= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"cityFeild"];
+    NSString * state= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"stateFeild"];
+    NSString * zip= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"zipCodeFeild"];
+    NSString * phone= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"phoneFeild"];
+    NSString * parkingInstruction = [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"parkingFeild"];
+    NSString * isHotel= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"isHotel"];
 #warning teja Check  **** dateAdded, dateModified
-    NSString * dateAdded= [self.inputFeildsDict valueForKey:@"date"];
+    NSString * dateAdded= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"date"];
     NSString * dateModified= @"dateModified";
     
-    NSString * cardHolderName= [self.inputFeildsDict valueForKey:@"cardHolderNameFeild"];
-    NSString * cardNumber= [self.inputFeildsDict valueForKey:@"cardNumberFeild"];
-    NSString * billingAddress= [self.inputFeildsDict valueForKey:@"billingAddres"];
-    NSString * billingCity= [self.inputFeildsDict valueForKey:@"cityFeild"];
-    NSString * billingState= [self.inputFeildsDict valueForKey:@"billingStateFeild"];
-    NSString * billingZip= [self.inputFeildsDict valueForKey:@"billingZipCodeFeild"];
+    NSString * cardHolderName= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"cardHolderNameFeild"];
+    NSString * cardNumber= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"cardNumberFeild"];
+    NSString * billingAddress= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"billingAddres"];
+    NSString * billingCity= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"cityFeild"];
+    NSString * billingState= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"billingStateFeild"];
+    NSString * billingZip= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"billingZipCodeFeild"];
     
     NSString *functionAndFormat =@"&function=register&format=xml";
     

@@ -10,7 +10,6 @@
 
 @interface PaymentViewController : UIViewController<UITextFieldDelegate,ParsedResponseDelegate>
 
-@property (strong, nonatomic) NSMutableDictionary * inputFeildsDict;
 @property (weak, nonatomic) IBOutlet UITextField *cardHolderNameFeild;
 @property (weak, nonatomic) IBOutlet UITextField *cardNumberFeild;
 @property (weak, nonatomic) IBOutlet UITextField *cvvFeild;

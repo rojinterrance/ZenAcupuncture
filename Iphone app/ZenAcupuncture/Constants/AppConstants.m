@@ -1,6 +1,6 @@
 //
 //  AppConstants.m
-//  HowBe
+//  ZenAcupuncture
 //
 //  Created by Teja Swaroop on 16/11/14.
 //  Copyright (c) 2014 SaiTeja. All rights reserved.
