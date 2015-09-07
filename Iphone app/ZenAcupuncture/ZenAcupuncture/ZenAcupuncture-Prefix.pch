@@ -17,5 +17,6 @@
     #import "ZASharedClass.h"
     #import "AppConstants.h"
 
+    #import "MFSideMenu.h"
 
 #endif

@@ -24,6 +24,9 @@
 {
     [super viewDidLoad];
     
+    [self.menuContainerViewController setPanMode:MFSideMenuPanModeDefault];
+
+    
     UIImageView * image = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     [image setImage:[UIImage imageNamed:@"background.png"]];
     [image setAlpha:0.3];
@@ -44,12 +47,24 @@
     
     [self.acupunctureImage.layer setBorderColor: [[UIColor blackColor] CGColor]];
     [self.acupunctureImage.layer setBorderWidth: 2.0];
+
+    
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Hamburger"] style:UIBarButtonItemStylePlain target:self action:@selector(hamberAction:)];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:246.0/255.0 green:188.0/255.0 blue:47.0/255.0 alpha:1.0]];
+    self.navigationItem.leftBarButtonItem = leftItem;
+}
+
+-(IBAction)hamberAction:(id)sender
+{
+ [self.menuContainerViewController toggleLeftSideMenuCompletion:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
+    self.navigationController.navigationBarHidden = NO;
+
     self.userIdStr = [[NSUserDefaults standardUserDefaults]valueForKey:@"userId"];
     
     if (self.userIdStr.length > 0)

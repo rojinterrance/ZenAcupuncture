@@ -10,6 +10,7 @@
 
 #import "MainViewController.h"
 
+#import "ApptourViewController.h"
 @interface ViewController ()
 
 @end
@@ -27,9 +28,21 @@
     }
     else
     {
-        MainViewController * mainViewObj = (MainViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"MainViewController"];
-        [self.navigationController pushViewController:mainViewObj animated:YES];
-    }
+        
+        if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"isFirstLaunch"]isEqualToString:@"NotFirst"])
+        {
+            MainViewController * mainViewObj = (MainViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"MainViewController"];
+            [self.navigationController pushViewController:mainViewObj animated:YES];
+        }
+        else
+        {
+            [[NSUserDefaults standardUserDefaults]setValue:@"NotFirst" forKey:@"isFirstLaunch"];
+            
+            ApptourViewController *apptourView = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"ApptourViewController"];
+               [self.navigationController pushViewController:apptourView animated:YES];
+        }
+
+         }
 }
 
 - (void)didReceiveMemoryWarning

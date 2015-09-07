@@ -10,10 +10,6 @@
 
 #import "Stripe.h"
 
-#import "ApptourViewController.h"
-
-#import "ViewController.h"
-
 NSString * const StripePublishableKey = @"pk_test_6pRNASCoBOKtIshFeQd4XMUh";
 
 @interface AppDelegate ()
@@ -27,22 +23,13 @@ NSString * const StripePublishableKey = @"pk_test_6pRNASCoBOKtIshFeQd4XMUh";
     
     [Stripe setDefaultPublishableKey:StripePublishableKey];
     
-    if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"isFirstLaunch"]isEqualToString:@"NotFirst"])
-    {
-        ViewController *mainView = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"ViewController"];
-        UINavigationController * mainNavView = [[UINavigationController alloc]initWithRootViewController:mainView];
-        
-        self.window.rootViewController = mainNavView;
-    }
-    else
-    {
-        [[NSUserDefaults standardUserDefaults]setValue:@"NotFirst" forKey:@"isFirstLaunch"];
-        
-         ApptourViewController *apptourView = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"ApptourViewController"];
-        UINavigationController * NavapptourView = [[UINavigationController alloc]initWithRootViewController:apptourView];
-        self.window.rootViewController = NavapptourView;
-    }
-    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController *)self.window.rootViewController;
+    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"navigationController"];
+    UIViewController *leftSideMenuViewController = [storyboard instantiateViewControllerWithIdentifier:@"leftSideMenuViewController"];
+    [container setLeftMenuViewController:leftSideMenuViewController];
+    [container setCenterViewController:navigationController];
+
     return YES;
 }
 

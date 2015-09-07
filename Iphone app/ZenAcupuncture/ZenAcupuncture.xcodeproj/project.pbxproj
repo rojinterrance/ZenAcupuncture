@@ -16,6 +16,10 @@
 		B74267011B8C7D42008D32E8 /* ConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B74267001B8C7D42008D32E8 /* ConfirmationViewController.m */; };
 		B74267041B8C8BD7008D32E8 /* Unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = B74267021B8C8BD7008D32E8 /* Unchecked.png */; };
 		B74267051B8C8BD7008D32E8 /* Checked.png in Resources */ = {isa = PBXBuildFile; fileRef = B74267031B8C8BD7008D32E8 /* Checked.png */; };
+		B74F5DB51B99A6E9006615FE /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B74F5DB41B99A6E9006615FE /* SideMenuViewController.m */; };
+		B74F5DB91B99A789006615FE /* Hamburger.png in Resources */ = {isa = PBXBuildFile; fileRef = B74F5DB61B99A789006615FE /* Hamburger.png */; };
+		B74F5DBA1B99A789006615FE /* Hamburger@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B74F5DB71B99A789006615FE /* Hamburger@2x.png */; };
+		B74F5DBB1B99A789006615FE /* Hamburger@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B74F5DB81B99A789006615FE /* Hamburger@3x.png */; };
 		B789AB341B94312700861B94 /* PreviousOrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B789AB331B94312700861B94 /* PreviousOrdersViewController.m */; };
 		B789AB361B943A7900861B94 /* Appointments.png in Resources */ = {isa = PBXBuildFile; fileRef = B789AB351B943A7900861B94 /* Appointments.png */; };
 		C104D82C1B89A9B100A52C77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C104D82B1B89A9B100A52C77 /* main.m */; };
@@ -65,6 +69,7 @@
 		C17DC4B71B94C617004CE5B3 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = C17DC4A31B94C617004CE5B3 /* iTunesArtwork */; };
 		C17DC4B81B94C617004CE5B3 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = C17DC4A41B94C617004CE5B3 /* iTunesArtwork@2x */; };
 		E24E5A783968F71158D11734 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18071766BBDA397BBAB9B17E /* libPods.a */; };
+		FC41E3261B9A0F3800A6B4E2 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41E3251B9A0F3800A6B4E2 /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +99,11 @@
 		B74267001B8C7D42008D32E8 /* ConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmationViewController.m; sourceTree = "<group>"; };
 		B74267021B8C8BD7008D32E8 /* Unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unchecked.png; sourceTree = "<group>"; };
 		B74267031B8C8BD7008D32E8 /* Checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Checked.png; sourceTree = "<group>"; };
+		B74F5DB31B99A6E9006615FE /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
+		B74F5DB41B99A6E9006615FE /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
+		B74F5DB61B99A789006615FE /* Hamburger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hamburger.png; sourceTree = "<group>"; };
+		B74F5DB71B99A789006615FE /* Hamburger@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hamburger@2x.png"; sourceTree = "<group>"; };
+		B74F5DB81B99A789006615FE /* Hamburger@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hamburger@3x.png"; sourceTree = "<group>"; };
 		B789AB321B94312700861B94 /* PreviousOrdersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviousOrdersViewController.h; sourceTree = "<group>"; };
 		B789AB331B94312700861B94 /* PreviousOrdersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviousOrdersViewController.m; sourceTree = "<group>"; };
 		B789AB351B943A7900861B94 /* Appointments.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appointments.png; sourceTree = "<group>"; };
@@ -156,6 +166,8 @@
 		C17DC4A21B94C617004CE5B3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		C17DC4A31B94C617004CE5B3 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		C17DC4A41B94C617004CE5B3 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
+		FC41E3241B9A0F3800A6B4E2 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = SideMenuSubViews/SettingsViewController.h; sourceTree = "<group>"; };
+		FC41E3251B9A0F3800A6B4E2 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = SideMenuSubViews/SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +189,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B74F5DB21B99A6D9006615FE /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				B74F5DB31B99A6E9006615FE /* SideMenuViewController.h */,
+				B74F5DB41B99A6E9006615FE /* SideMenuViewController.m */,
+				FC41E3231B9A0EEA00A6B4E2 /* SideMenuSubViews */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
 		B789AB2F1B9430FC00861B94 /* PreviousOrders */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +284,7 @@
 		C104D8571B89AE9D00A52C77 /* Viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				B74F5DB21B99A6D9006615FE /* SideMenu */,
 				C11182BA1B98B897001BDD16 /* ApptourView */,
 				B789AB2F1B9430FC00861B94 /* PreviousOrders */,
 				C104D8581B89AE9D00A52C77 /* SpalshView */,
@@ -400,6 +423,9 @@
 				C11182BE1B98BC04001BDD16 /* Apptour */,
 				C17DC4901B94C617004CE5B3 /* Icons */,
 				B789AB351B943A7900861B94 /* Appointments.png */,
+				B74F5DB61B99A789006615FE /* Hamburger.png */,
+				B74F5DB71B99A789006615FE /* Hamburger@2x.png */,
+				B74F5DB81B99A789006615FE /* Hamburger@3x.png */,
 				C1214B881B8D5F6F00A761E2 /* Cupping.png */,
 				C1214B891B8D5F6F00A761E2 /* Acupressure.png */,
 				C1214B8A1B8D5F6F00A761E2 /* Acupuncture.png */,
@@ -459,6 +485,15 @@
 				18071766BBDA397BBAB9B17E /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FC41E3231B9A0EEA00A6B4E2 /* SideMenuSubViews */ = {
+			isa = PBXGroup;
+			children = (
+				FC41E3241B9A0F3800A6B4E2 /* SettingsViewController.h */,
+				FC41E3251B9A0F3800A6B4E2 /* SettingsViewController.m */,
+			);
+			name = SideMenuSubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -550,16 +585,19 @@
 				C11182C81B98BC04001BDD16 /* 5.jpg in Resources */,
 				B74266F21B8C44DC008D32E8 /* background.png in Resources */,
 				C1214B8B1B8D5F6F00A761E2 /* Cupping.png in Resources */,
+				B74F5DBA1B99A789006615FE /* Hamburger@2x.png in Resources */,
 				C104D8551B89AA0B00A52C77 /* Main.storyboard in Resources */,
 				C17DC4AA1B94C617004CE5B3 /* Icon-76.png in Resources */,
 				C15F01911B8B914D000C4150 /* Sports.png in Resources */,
 				C17DC4A81B94C617004CE5B3 /* Icon-72.png in Resources */,
+				B74F5DBB1B99A789006615FE /* Hamburger@3x.png in Resources */,
 				C17DC4B61B94C617004CE5B3 /* Icon@2x.png in Resources */,
 				C17DC4AF1B94C617004CE5B3 /* Icon-Small.png in Resources */,
 				C15F01921B8B914D000C4150 /* DeepTissue.png in Resources */,
 				C104D8541B89AA0B00A52C77 /* LaunchScreen.xib in Resources */,
 				C15F018A1B8B8F64000C4150 /* header.png in Resources */,
 				C104D8371B89A9B100A52C77 /* Images.xcassets in Resources */,
+				B74F5DB91B99A789006615FE /* Hamburger.png in Resources */,
 				C17DC4B41B94C617004CE5B3 /* Icon-Spotlight-40@3x.png in Resources */,
 				C17DC4A91B94C617004CE5B3 /* Icon-72@2x.png in Resources */,
 				C1214B8C1B8D5F6F00A761E2 /* Acupressure.png in Resources */,
@@ -636,8 +674,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B74F5DB51B99A6E9006615FE /* SideMenuViewController.m in Sources */,
 				C104D85B1B89AE9D00A52C77 /* ViewController.m in Sources */,
 				C104D82F1B89A9B100A52C77 /* AppDelegate.m in Sources */,
+				FC41E3261B9A0F3800A6B4E2 /* SettingsViewController.m in Sources */,
 				B74266F81B8C7C65008D32E8 /* AccunpunctureViewController.m in Sources */,
 				B74266FE1B8C7D16008D32E8 /* PaymentViewController.m in Sources */,
 				C104D82C1B89A9B100A52C77 /* main.m in Sources */,

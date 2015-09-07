@@ -8,7 +8,7 @@
 
 #import "ApptourViewController.h"
 
-#import "ViewController.h"
+#import "MainViewController.h"
 
 @interface ApptourViewController ()
 
@@ -27,6 +27,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [self.menuContainerViewController setPanMode:MFSideMenuPanModeNone];
     [super viewWillAppear:animated];
     
     self.skipBtn.hidden = NO;
@@ -34,13 +35,8 @@
 
 - (IBAction)skipTourAction:(id)sender
 {
-    NSLog(@"skip action");
-    
-    ViewController *mainView = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"ViewController"];
-    UINavigationController * mainNavView = [[UINavigationController alloc]initWithRootViewController:mainView];
-    
-    self.view.window.rootViewController = mainNavView;
-
+    MainViewController * mainViewObj = (MainViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"MainViewController"];
+    [self.navigationController pushViewController:mainViewObj animated:YES];
 }
 
 -(void)setScrollViewWithPageControl
