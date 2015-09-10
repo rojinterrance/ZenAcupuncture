@@ -10,7 +10,13 @@
 
 #import "PaymentViewController.h"
 
+#import "ActionSheetStringPicker.h"
+
 @interface AddressViewController ()
+{
+    NSMutableArray *addressArray;
+}
+@property (nonatomic,assign) NSInteger selectedIndex;
 
 @end
 
@@ -20,7 +26,7 @@
 {
     [super viewDidLoad];
     self.navigationItem.title= HEADER_TITLE;
-    
+    addressArray = [NSMutableArray new];
     isHotel = YES;
     
     UIBarButtonItem * leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back.png"] style:UIBarButtonItemStylePlain target:self action:@selector(backTapped:)];
@@ -65,11 +71,6 @@
         [[[ZASharedClass sharedInstance]inputValuesDict] setValue: self.addressFeild.text forKey:@"addressFeild"];
         [[[ZASharedClass sharedInstance]inputValuesDict] setValue: self.firstNameFeild.text forKey:@"firstNameFeild"];
         [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.lastNameFeild.text forKey:@"lastNameFeild"];
-        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.deliverAddFeild.text forKey:@"deliverAddFeild"];
-        [[[ZASharedClass sharedInstance]inputValuesDict] setValue: self.roomFeild.text forKey:@"roomFeild"];
-        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.cityFeild.text forKey:@"cityFeild"];
-        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.stateFeild.text forKey:@"stateFeild"];
-        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.zipCodefeild.text forKey:@"zipCodefeild"];
         [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.phoneFeild.text forKey:@"phoneFeild"];
         [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.parkingFeild.text forKey:@"parkingFeild"];
         [[[ZASharedClass sharedInstance]inputValuesDict] setValue:hotelStr forKey:@"isHotel"];
@@ -82,6 +83,59 @@
         UIAlertView * alert = [[UIAlertView alloc]initWithTitle:APPLICATION_NAME message:@"Please enter Address and First name" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
     }
+}
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    if (newString.length > 4 && self.addressFeild == textField)
+    {
+        NSLog(@"Make a service Call Here");
+        NSString *serviceURL = [NSString stringWithFormat:@"%@%@",@"http://maps.google.com/maps/api/geocode/json?address=",self.addressFeild.text];
+        if ([[ZASharedClass sharedInstance] isNetworkAvalible])
+        {
+            [[ZASharedClass sharedInstance]showGlobalProgressHUDWithTitle:@"Loading..."];
+
+            [[ZASharedClass sharedInstance] getRequestWithURL:serviceURL withCallback:^(id result, NSError *error) {
+                [[ZASharedClass sharedInstance]dismissGlobalHUD];
+
+                if (result != nil)
+                {
+                 //   NSLog(@"Response--->%@",result);
+                    [addressArray addObjectsFromArray:[result[@"results"] valueForKey:@"formatted_address"]];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [[ZASharedClass sharedInstance]dismissGlobalHUD];
+
+                        [textField resignFirstResponder];
+                        [ActionSheetStringPicker showPickerWithTitle:@"SPECIALITY" rows:addressArray initialSelection:self.selectedIndex target:self successAction:@selector(addressWasSelected:element:) cancelAction:@selector(actionPickerCancelled:) origin:textField];
+                    });
+                }
+            }];
+        }
+        else
+        {
+            [[ZASharedClass sharedInstance]dismissGlobalHUD];
+            UIAlertView *alertMessage = [[UIAlertView alloc]initWithTitle:@"No Address Found" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertMessage show];
+
+        }
+      //  return !([newString length] > 4);
+
+    }
+    return YES;
+    
+    
+}
+- (void)addressWasSelected:(NSNumber *)selectedIndex element:(id)element
+{
+    self.selectedIndex = [selectedIndex intValue];
+    self.addressFeild.text = (addressArray)[(NSUInteger) self.selectedIndex];
+    
+}
+- (void)actionPickerCancelled:(id)sender
+{
+    NSLog(@"Delegate has been informed that ActionSheetPicker was cancelled");
+    
 }
 
 
@@ -100,32 +154,8 @@
     else if ([self.lastNameFeild isFirstResponder])
     {
         [self.lastNameFeild resignFirstResponder];
-        [self.deliverAddFeild becomeFirstResponder];
-    }
-    else if ([self.deliverAddFeild isFirstResponder])
-    {
-        [self.deliverAddFeild resignFirstResponder];
-        [self.roomFeild becomeFirstResponder];
-    }
-    else if ([self.roomFeild isFirstResponder])
-    {
-        [self.roomFeild resignFirstResponder];
-        [self.cityFeild becomeFirstResponder];
-    }
-    else if ([self.cityFeild isFirstResponder])
-    {
-        [self.cityFeild resignFirstResponder];
-        [self.stateFeild becomeFirstResponder];
-    }
-    else if ([self.stateFeild isFirstResponder])
-    {
-        [self.stateFeild resignFirstResponder];
-        [self.zipCodefeild becomeFirstResponder];
-    }
-    else if ([self.zipCodefeild isFirstResponder])
-    {
-        [self.zipCodefeild resignFirstResponder];
         [self.phoneFeild becomeFirstResponder];
+
     }
     else if ([self.phoneFeild isFirstResponder])
     {

@@ -18,11 +18,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *addressFeild;
 @property (strong, nonatomic) IBOutlet UITextField *firstNameFeild;
 @property (strong, nonatomic) IBOutlet UITextField *lastNameFeild;
-@property (strong, nonatomic) IBOutlet UITextField *deliverAddFeild;
-@property (strong, nonatomic) IBOutlet UITextField *roomFeild;
-@property (strong, nonatomic) IBOutlet UITextField *cityFeild;
-@property (strong, nonatomic) IBOutlet UITextField *stateFeild;
-@property (strong, nonatomic) IBOutlet UITextField *zipCodefeild;
 @property (strong, nonatomic) IBOutlet UITextField *phoneFeild;
 @property (strong, nonatomic) IBOutlet UITextField *parkingFeild;
 

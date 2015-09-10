@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B74266EE1B8C3D45008D32E8 /* ZenAcunpuncture.png in Resources */ = {isa = PBXBuildFile; fileRef = B74266ED1B8C3D45008D32E8 /* ZenAcunpuncture.png */; };
 		B74266F01B8C41A9008D32E8 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = B74266EF1B8C41A9008D32E8 /* back.png */; };
 		B74266F21B8C44DC008D32E8 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = B74266F11B8C44DC008D32E8 /* background.png */; };
 		B74266F81B8C7C65008D32E8 /* AccunpunctureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B74266F71B8C7C65008D32E8 /* AccunpunctureViewController.m */; };
@@ -68,6 +67,7 @@
 		C17DC4B61B94C617004CE5B3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C17DC4A21B94C617004CE5B3 /* Icon@2x.png */; };
 		C17DC4B71B94C617004CE5B3 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = C17DC4A31B94C617004CE5B3 /* iTunesArtwork */; };
 		C17DC4B81B94C617004CE5B3 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = C17DC4A41B94C617004CE5B3 /* iTunesArtwork@2x */; };
+		C1B53C281BA0B6BB007F865A /* Zen.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B53C271BA0B6BB007F865A /* Zen.png */; };
 		E24E5A783968F71158D11734 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18071766BBDA397BBAB9B17E /* libPods.a */; };
 		FC41E3261B9A0F3800A6B4E2 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41E3251B9A0F3800A6B4E2 /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
@@ -86,7 +86,6 @@
 		18071766BBDA397BBAB9B17E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		71DB138F92D7964FD24A3E9F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A6252B04C6CBDA8F846A9FE4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		B74266ED1B8C3D45008D32E8 /* ZenAcunpuncture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZenAcunpuncture.png; sourceTree = "<group>"; };
 		B74266EF1B8C41A9008D32E8 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		B74266F11B8C44DC008D32E8 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		B74266F61B8C7C65008D32E8 /* AccunpunctureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccunpunctureViewController.h; sourceTree = "<group>"; };
@@ -166,6 +165,7 @@
 		C17DC4A21B94C617004CE5B3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		C17DC4A31B94C617004CE5B3 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		C17DC4A41B94C617004CE5B3 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
+		C1B53C271BA0B6BB007F865A /* Zen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zen.png; sourceTree = "<group>"; };
 		FC41E3241B9A0F3800A6B4E2 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = SideMenuSubViews/SettingsViewController.h; sourceTree = "<group>"; };
 		FC41E3251B9A0F3800A6B4E2 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = SideMenuSubViews/SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -420,6 +420,7 @@
 		C15F01861B8B8B75000C4150 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C1B53C271BA0B6BB007F865A /* Zen.png */,
 				C11182BE1B98BC04001BDD16 /* Apptour */,
 				C17DC4901B94C617004CE5B3 /* Icons */,
 				B789AB351B943A7900861B94 /* Appointments.png */,
@@ -433,7 +434,6 @@
 				B74267031B8C8BD7008D32E8 /* Checked.png */,
 				B74266F11B8C44DC008D32E8 /* background.png */,
 				B74266EF1B8C41A9008D32E8 /* back.png */,
-				B74266ED1B8C3D45008D32E8 /* ZenAcunpuncture.png */,
 				C15F018B1B8B914D000C4150 /* subtitle.png */,
 				C15F018C1B8B914D000C4150 /* Sports.png */,
 				C15F018D1B8B914D000C4150 /* DeepTissue.png */,
@@ -584,6 +584,7 @@
 				C15F01901B8B914D000C4150 /* subtitle.png in Resources */,
 				C11182C81B98BC04001BDD16 /* 5.jpg in Resources */,
 				B74266F21B8C44DC008D32E8 /* background.png in Resources */,
+				C1B53C281BA0B6BB007F865A /* Zen.png in Resources */,
 				C1214B8B1B8D5F6F00A761E2 /* Cupping.png in Resources */,
 				B74F5DBA1B99A789006615FE /* Hamburger@2x.png in Resources */,
 				C104D8551B89AA0B00A52C77 /* Main.storyboard in Resources */,
@@ -606,7 +607,6 @@
 				C1214B8D1B8D5F6F00A761E2 /* Acupuncture.png in Resources */,
 				B74266F01B8C41A9008D32E8 /* back.png in Resources */,
 				C17DC4B11B94C617004CE5B3 /* Icon-Small@3x.png in Resources */,
-				B74266EE1B8C3D45008D32E8 /* ZenAcunpuncture.png in Resources */,
 				C11182C61B98BC04001BDD16 /* 3.jpg in Resources */,
 				B74267041B8C8BD7008D32E8 /* Unchecked.png in Resources */,
 				C17DC4B21B94C617004CE5B3 /* Icon-Spotlight-40.png in Resources */,

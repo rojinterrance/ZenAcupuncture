@@ -12,6 +12,7 @@
 @implementation ZASharedClass
 
 static ZASharedClass * sharedClassObj = nil;
+static NSOperationQueue *reqQueue;
 
 +(ZASharedClass *)sharedInstance
 {
@@ -23,6 +24,14 @@ static ZASharedClass * sharedClassObj = nil;
     return sharedClassObj;
 }
 
+- (NSOperationQueue *)requestQueue
+{
+    if (!reqQueue) {
+        reqQueue = [[NSOperationQueue alloc] init];
+    }
+    
+    return reqQueue;
+}
 
 +(id)allocWithZone:(struct _NSZone *)zone
 {
@@ -164,6 +173,29 @@ static ZASharedClass * sharedClassObj = nil;
             completionHandler(NO,@"Failure");
          }
      }];
+}
+
+- (void)getRequestWithURL:(NSString *)url withCallback:(void (^) (id result, NSError *error))callbackHandler {
+    
+    NSLog(@"URL : %@", url);
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"GET"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[self requestQueue] completionHandler:^(NSURLResponse *resp, NSData *data, NSError *error) {
+        
+        id  responseObject = nil;
+        
+        if (data != nil) {
+            responseObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        }
+        
+        NSLog(@"Response : %@\nError : %@", responseObject, error.description);
+        
+        callbackHandler(responseObject, error);
+    }];
 }
 
 #pragma mark - Parsing

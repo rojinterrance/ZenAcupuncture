@@ -185,11 +185,12 @@ if( $_GET['function'] == "register" ) {
 	$billingCity = $_GET['billingCity'];	
 	$billingState = $_GET['billingState'];
 	$billingZip = $_GET['billingZip'];
+	$acupunctureType = $_GET['acupunctureType'];
 	
 	$link = mysql_connect('127.0.0.1','root','indian@1') or die('Cannot connect to the DB');
 	mysql_select_db('bodymassage',$link) or die('Cannot select the DB');
 	
-	$query = "insert into registerations (appointmentDate, appointTime, therapistGender, sessionLength, note, userId) values ('$appointmentDate', '$appointTime', '$therapistGender', '$sessionLength', '$note', '$userId')";
+	$query = "insert into registerations (appointmentDate, appointTime, therapistGender, sessionLength, note, userId, acupunctureType) values ('$appointmentDate', '$appointTime', '$therapistGender', '$sessionLength', '$note', '$userId', '$acupunctureType')";
 	$result1 = mysql_query($query,$link) or die('Errant query:  '.$query);
 	
 	$query = "insert into useraddress (isActive, addressLabel, firstName, lastName, deliveryAddress, apt_suit_room, city, state, zip, phone, parkingInstruction, isHotel, dateAdded, dateModified, cardHolderName, cardNumber, billingAddress, billingCity, billingState, billingZip, userId) values (1, '$addressLabel', '$firstName', '$lastName', '$deliveryAddress', '$apt_suit_room', '$city', '$state', '$zip', '$phone', '$parkingInstruction', '$isHotel', '$dateAdded', '$dateModified', '$cardHolderName', '$cardNumber', '$billingAddress', '$billingCity', '$billingState', '$billingZip', '$userId')";

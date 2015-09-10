@@ -42,13 +42,13 @@ typedef void(^ZAResponseDictionary)(NSMutableDictionary * productDetDict, BOOL s
 - (void)dismissGlobalHUD;
 - (BOOL)isNetworkAvalible;
 - (UIColor*)colorWithHexString:(NSString*)hex;
-
+- (NSOperationQueue *)requestQueue;
 #pragma mark - Webservices
 
 - (void)fetchDataForLoginDetailsWith:(NSString*)urlString withCompletion:(ZAResponseXMLString)completionHandler;
+- (void)getRequestWithURL:(NSString *)url withCallback:(void (^) (id result, NSError *error))callbackHandler;
 
 #pragma mark Methods
-
 -(void)setNavigationBarInViewController:(UIViewController*)viewController;
 
 #pragma mark Parse Methods
