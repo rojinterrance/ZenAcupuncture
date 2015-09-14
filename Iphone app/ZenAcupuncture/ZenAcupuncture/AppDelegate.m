@@ -10,7 +10,13 @@
 
 #import "Stripe.h"
 
-NSString * const StripePublishableKey = @"pk_test_6pRNASCoBOKtIshFeQd4XMUh";
+NSString * const StripePublishableKey = @"pk_test_h8nQSzEVa53b9ezc7Hw3P8cv";
+
+//Test  Secreay Key : sk_test_xF4chTyLhRljcj3MY3BfDgFt
+//Test  Publish Key : pk_test_h8nQSzEVa53b9ezc7Hw3P8cv
+
+//Live  Secreay Key :sk_live_J3i2tD3yDZL1hStBDkKJB80G
+//Live  Publish Key :pk_live_RwGhIBaFPKHtirYMVOxAtxNc
 
 @interface AppDelegate ()
 

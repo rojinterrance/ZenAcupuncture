@@ -19,4 +19,6 @@
 
     #import "MFSideMenu.h"
 
+    #import <Stripe/Stripe.h>
+
 #endif

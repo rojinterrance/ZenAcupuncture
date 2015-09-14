@@ -11,7 +11,10 @@
 #import "MainViewController.h"
 
 #import "ApptourViewController.h"
-@interface ViewController ()
+
+@interface ViewController ()<STPPaymentCardTextFieldDelegate>
+
+@property (weak, nonatomic)  STPPaymentCardTextField *paymentTextField;
 
 @end
 
@@ -21,6 +24,7 @@
 {
     [super viewDidLoad];
     
+    
     if (![[ZASharedClass sharedInstance]isNetworkAvalible])
     {
         UIAlertView * alert = [[UIAlertView alloc]initWithTitle:APPLICATION_NAME message:@"Please Check your Network connection" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
@@ -28,7 +32,6 @@
     }
     else
     {
-        
         if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"isFirstLaunch"]isEqualToString:@"NotFirst"])
         {
             MainViewController * mainViewObj = (MainViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"MainViewController"];
@@ -39,16 +42,16 @@
             [[NSUserDefaults standardUserDefaults]setValue:@"NotFirst" forKey:@"isFirstLaunch"];
             
             ApptourViewController *apptourView = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"ApptourViewController"];
-               [self.navigationController pushViewController:apptourView animated:YES];
+            [self.navigationController pushViewController:apptourView animated:YES];
         }
-
-         }
+    }
+ 
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-
+    
 }
 
 @end

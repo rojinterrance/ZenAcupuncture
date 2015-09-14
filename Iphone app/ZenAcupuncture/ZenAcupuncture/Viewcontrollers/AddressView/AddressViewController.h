@@ -8,20 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddressViewController : UIViewController<UITextFieldDelegate>
+@interface AddressViewController : UIViewController<UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     BOOL isHotel;
+    BOOL isTableShown;
 }
-
 @property (strong, nonatomic) IBOutlet UIButton *ishotelBtn;
-
 @property (strong, nonatomic) IBOutlet UITextField *addressFeild;
 @property (strong, nonatomic) IBOutlet UITextField *firstNameFeild;
 @property (strong, nonatomic) IBOutlet UITextField *lastNameFeild;
 @property (strong, nonatomic) IBOutlet UITextField *phoneFeild;
-@property (strong, nonatomic) IBOutlet UITextField *parkingFeild;
 
 - (IBAction)isHotelAction:(id)sender;
 - (IBAction)addAndContinueAction:(id)sender;
+
+@property(nonatomic, strong) IBOutlet UIView * smallView;
+@property (strong, nonatomic) IBOutlet UITableView * locationTable;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *barBtnDone;
+@property (strong, nonatomic) IBOutlet UIToolbar *toolBar;
+
+- (IBAction)doneClk:(id)sender;
 
 @end

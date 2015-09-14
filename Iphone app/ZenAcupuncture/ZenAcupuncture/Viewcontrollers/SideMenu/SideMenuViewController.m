@@ -12,6 +12,8 @@
 
 #import "MainViewController.h"
 
+#import "PreviousOrdersViewController.h"
+
 @interface SideMenuViewController ()
 
 @end
@@ -22,7 +24,7 @@
 {
     [super viewDidLoad];
     
-    self.sideMenuArray = @[@"Book Massage",@"Bookings",@"Share",@"Settings",@"Log Out"];
+    self.sideMenuArray = @[@"Book Massage",@"Appointments",@"Share",@"Settings",@"Log Out"];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -56,18 +58,20 @@
     {
         MainViewController * settingsView = (MainViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"MainViewController"];
         self.menuContainerViewController.centerViewController = [[UINavigationController alloc]initWithRootViewController:settingsView];
-        [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
-
+    }
+    else if (indexPath.row == 1)
+    {
+        PreviousOrdersViewController * previous = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"PreviousOrdersViewController"];
+        self.menuContainerViewController.centerViewController = [[UINavigationController alloc]initWithRootViewController:previous];
     }
     else if (indexPath.row == 3)
     {
 
         SettingsViewController * settingsView = (SettingsViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"SettingsViewID"];
         self.menuContainerViewController.centerViewController = [[UINavigationController alloc]initWithRootViewController:settingsView];
-        [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
-
-
     }
+    [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
+
 }
 
 - (void)didReceiveMemoryWarning

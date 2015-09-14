@@ -20,4 +20,6 @@ NSString *const MainStoryBoardiPhone = @"Main";
 
 NSString * const baseUrl = @"http://spericorn.com/bodymassageapp/bodymassage.php";
 
+NSString * const GOOGLE_ADDRESS_URL = @"http://maps.google.com/maps/api/geocode/json?address=";
+
 @end

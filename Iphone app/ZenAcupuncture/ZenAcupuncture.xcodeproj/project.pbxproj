@@ -166,6 +166,7 @@
 		C17DC4A31B94C617004CE5B3 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		C17DC4A41B94C617004CE5B3 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		C1B53C271BA0B6BB007F865A /* Zen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zen.png; sourceTree = "<group>"; };
+		C1D3A8251BA34F3600FE1CFE /* ZenAcupuncture.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ZenAcupuncture.entitlements; sourceTree = "<group>"; };
 		FC41E3241B9A0F3800A6B4E2 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = SideMenuSubViews/SettingsViewController.h; sourceTree = "<group>"; };
 		FC41E3251B9A0F3800A6B4E2 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = SideMenuSubViews/SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -246,6 +247,7 @@
 		C104D8291B89A9B100A52C77 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C1D3A8251BA34F3600FE1CFE /* ZenAcupuncture.entitlements */,
 				C15F01861B8B8B75000C4150 /* Images */,
 				C104D8561B89AAD200A52C77 /* ZenAcupuncture-Prefix.pch */,
 				C104D8361B89A9B100A52C77 /* Images.xcassets */,
@@ -547,7 +549,11 @@
 				TargetAttributes = {
 					C104D8251B89A9B100A52C77 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 3Z554U4Q6A;
+						SystemCapabilities = {
+							com.apple.OMC = {
+								enabled = 1;
+							};
+						};
 					};
 					C104D83E1B89A9B100A52C77 = {
 						CreatedOnToolsVersion = 6.4;
@@ -818,13 +824,12 @@
 			baseConfigurationReference = 71DB138F92D7964FD24A3E9F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: CHANNIE AMATO (3Z554U4Q6A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHANNIE AMATO (3Z554U4Q6A)";
+				CODE_SIGN_ENTITLEMENTS = ZenAcupuncture/ZenAcupuncture.entitlements;
 				GCC_PREFIX_HEADER = "ZenAcupuncture/ZenAcupuncture-Prefix.pch";
 				INFOPLIST_FILE = ZenAcupuncture/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3ffa3fb4-ca43-422c-a0a9-703ada421771";
+				PROVISIONING_PROFILE = "dccaebbd-c670-4d6c-9f29-eebe89ad61ca";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -834,13 +839,11 @@
 			baseConfigurationReference = A6252B04C6CBDA8F846A9FE4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: CHANNIE AMATO (3Z554U4Q6A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHANNIE AMATO (3Z554U4Q6A)";
+				CODE_SIGN_ENTITLEMENTS = ZenAcupuncture/ZenAcupuncture.entitlements;
 				GCC_PREFIX_HEADER = "ZenAcupuncture/ZenAcupuncture-Prefix.pch";
 				INFOPLIST_FILE = ZenAcupuncture/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3ffa3fb4-ca43-422c-a0a9-703ada421771";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -849,6 +852,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ravi Surathu (HJD5E9GNT7)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -860,6 +864,7 @@
 				INFOPLIST_FILE = ZenAcupunctureTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "dccaebbd-c670-4d6c-9f29-eebe89ad61ca";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZenAcupuncture.app/ZenAcupuncture";
 			};
 			name = Debug;
@@ -868,6 +873,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ravi Surathu (HJD5E9GNT7)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -875,6 +881,7 @@
 				INFOPLIST_FILE = ZenAcupunctureTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "dccaebbd-c670-4d6c-9f29-eebe89ad61ca";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZenAcupuncture.app/ZenAcupuncture";
 			};
 			name = Release;

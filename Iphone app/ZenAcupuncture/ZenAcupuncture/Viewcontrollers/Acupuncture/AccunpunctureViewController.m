@@ -24,6 +24,7 @@
     
     self.navigationItem.title= HEADER_TITLE;
     
+    self.datePkr.minimumDate = [NSDate date];
     UIBarButtonItem * leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back.png"] style:UIBarButtonItemStylePlain target:self action:@selector(backTapped:)];
     self.navigationItem.leftBarButtonItem =leftButton;
     
@@ -178,8 +179,44 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    [self chnageDateAndTime];
-    return NO;
+    if (textField != self.notesFeild)
+    {
+        [self chnageDateAndTime];
+        return NO;
+    }
+    else
+    {
+        [self animateTextField: textField up: YES];
+        return YES;
+    }
+   
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if ( textField == self.notesFeild)
+    {
+        [self animateTextField: textField up: NO];
+    }
+    
+}
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up
+{
+    int movementDistance = 50;
+    float movementDuration = 0.3f;
+    
+    if (textField == self.notesFeild)
+    {
+        movementDistance = 50;
+        
+    }
+    movementDistance = 120;
+    int movement = (up ? -movementDistance : movementDistance);
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{

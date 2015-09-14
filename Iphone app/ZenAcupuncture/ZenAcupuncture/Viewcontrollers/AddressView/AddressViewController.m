@@ -28,10 +28,14 @@
     self.navigationItem.title= HEADER_TITLE;
     addressArray = [NSMutableArray new];
     isHotel = YES;
+    isTableShown = NO;
+
+    self.smallView.hidden = YES;
     
     UIBarButtonItem * leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back.png"] style:UIBarButtonItemStylePlain target:self action:@selector(backTapped:)];
     self.navigationItem.leftBarButtonItem =leftButton;
 }
+
 -(IBAction)backTapped:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -72,7 +76,6 @@
         [[[ZASharedClass sharedInstance]inputValuesDict] setValue: self.firstNameFeild.text forKey:@"firstNameFeild"];
         [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.lastNameFeild.text forKey:@"lastNameFeild"];
         [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.phoneFeild.text forKey:@"phoneFeild"];
-        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.parkingFeild.text forKey:@"parkingFeild"];
         [[[ZASharedClass sharedInstance]inputValuesDict] setValue:hotelStr forKey:@"isHotel"];
         
         PaymentViewController * paymentView = (PaymentViewController*) [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"PaymentViewController"];
@@ -88,10 +91,11 @@
 {
     NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
     
-    if (newString.length > 4 && self.addressFeild == textField)
+    if (newString.length > 5 && self.addressFeild == textField)
     {
         NSLog(@"Make a service Call Here");
-        NSString *serviceURL = [NSString stringWithFormat:@"%@%@",@"http://maps.google.com/maps/api/geocode/json?address=",self.addressFeild.text];
+
+        NSString *serviceURL = [NSString stringWithFormat:@"%@%@",GOOGLE_ADDRESS_URL,self.addressFeild.text];
         if ([[ZASharedClass sharedInstance] isNetworkAvalible])
         {
             [[ZASharedClass sharedInstance]showGlobalProgressHUDWithTitle:@"Loading..."];
@@ -105,9 +109,9 @@
                     [addressArray addObjectsFromArray:[result[@"results"] valueForKey:@"formatted_address"]];
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [[ZASharedClass sharedInstance]dismissGlobalHUD];
-
-                        [textField resignFirstResponder];
-                        [ActionSheetStringPicker showPickerWithTitle:@"SPECIALITY" rows:addressArray initialSelection:self.selectedIndex target:self successAction:@selector(addressWasSelected:element:) cancelAction:@selector(actionPickerCancelled:) origin:textField];
+                       [self.view endEditing:YES];
+                        self.smallView.hidden = NO;
+                        [self.locationTable reloadData];
                     });
                 }
             }];
@@ -117,36 +121,44 @@
             [[ZASharedClass sharedInstance]dismissGlobalHUD];
             UIAlertView *alertMessage = [[UIAlertView alloc]initWithTitle:@"No Address Found" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alertMessage show];
-
         }
-      //  return !([newString length] > 4);
-
     }
     return YES;
-    
-    
-}
-- (void)addressWasSelected:(NSNumber *)selectedIndex element:(id)element
-{
-    self.selectedIndex = [selectedIndex intValue];
-    self.addressFeild.text = (addressArray)[(NSUInteger) self.selectedIndex];
-    
-}
-- (void)actionPickerCancelled:(id)sender
-{
-    NSLog(@"Delegate has been informed that ActionSheetPicker was cancelled");
-    
 }
 
+#pragma mark - Table Delegates
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+ UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+    }
+    
+    cell.textLabel.text=[addressArray objectAtIndex:indexPath.row];
+    [cell setBackgroundColor:[UIColor whiteColor]];
+return cell;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return  [addressArray count];
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.addressFeild.text = [addressArray objectAtIndex:indexPath.row];
+    self.smallView.hidden = YES;
+    isTableShown =NO;
+}
+- (IBAction)doneClk:(id)sender {
+    self.smallView.hidden = YES;
+}
+
+#pragma mark - Textfeild Delegates
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     
-    if ([self.addressFeild isFirstResponder])
-    {
-        [self.addressFeild resignFirstResponder];
-        [self.firstNameFeild becomeFirstResponder];
-    }
-    else if ([self.firstNameFeild isFirstResponder])
+  if ([self.firstNameFeild isFirstResponder])
     {
         [self.firstNameFeild resignFirstResponder];
         [self.lastNameFeild becomeFirstResponder];
@@ -155,17 +167,17 @@
     {
         [self.lastNameFeild resignFirstResponder];
         [self.phoneFeild becomeFirstResponder];
-
     }
     else if ([self.phoneFeild isFirstResponder])
     {
         [self.phoneFeild resignFirstResponder];
-        [self.parkingFeild becomeFirstResponder];
+           [self.addressFeild becomeFirstResponder];
     }
-    else if ([self.parkingFeild isFirstResponder])
+    else if ([self.addressFeild isFirstResponder])
     {
-        [self.parkingFeild resignFirstResponder];
+        [self.addressFeild resignFirstResponder];
     }
+   
     return YES;
 }
 - (void)didReceiveMemoryWarning

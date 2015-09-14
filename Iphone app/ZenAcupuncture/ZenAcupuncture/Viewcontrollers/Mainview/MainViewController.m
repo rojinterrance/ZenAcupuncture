@@ -65,13 +65,13 @@
     
     self.navigationController.navigationBarHidden = NO;
 
-    self.userIdStr = [[NSUserDefaults standardUserDefaults]valueForKey:@"userId"];
-    
-    if (self.userIdStr.length > 0)
-    {
-        UIBarButtonItem * rightButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"Appointments.png"]  style:UIBarButtonItemStylePlain target:self action:@selector(myBookings:)];
-        self.navigationItem.rightBarButtonItem =rightButton;
-    }
+//    self.userIdStr = [[NSUserDefaults standardUserDefaults]valueForKey:@"userId"];
+//    
+//    if (self.userIdStr.length > 0)
+//    {
+//        UIBarButtonItem * rightButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"Appointments.png"]  style:UIBarButtonItemStylePlain target:self action:@selector(myBookings:)];
+//        self.navigationItem.rightBarButtonItem =rightButton;
+//    }
 }
 
 -(IBAction)myBookings:(id)sender

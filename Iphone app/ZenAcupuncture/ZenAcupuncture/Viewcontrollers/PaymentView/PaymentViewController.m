@@ -10,7 +10,9 @@
 
 #import "ConfirmationViewController.h"
 
-@interface PaymentViewController ()
+@interface PaymentViewController ()<STPPaymentCardTextFieldDelegate>
+
+@property (weak, nonatomic)  STPPaymentCardTextField *paymentTextField;
 
 @end
 
@@ -20,13 +22,30 @@
 {
     [super viewDidLoad];
     
-    self.cardNumberFeild.text =@"5105105105105100";
-    self.cvvFeild.text =@"123";
-    
     self.navigationItem.title=HEADER_TITLE;
     
     UIBarButtonItem * leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back.png"] style:UIBarButtonItemStylePlain target:self action:@selector(backTapped:)];
     self.navigationItem.leftBarButtonItem =leftButton;
+    
+    NSString *title = [NSString stringWithFormat:@"Pay Bill"];
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStyleDone target:self action:@selector(addAndContinue:)];
+    saveButton.enabled = NO;
+    self.navigationItem.rightBarButtonItem = saveButton;
+    
+    
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    
+    
+    STPPaymentCardTextField *paymentTextField = [[STPPaymentCardTextField alloc] init];
+    paymentTextField.delegate = self;
+    self.paymentTextField = paymentTextField;
+    [self.view addSubview:paymentTextField];
+    
+    CGFloat padding = 15;
+    CGFloat width = CGRectGetWidth(self.view.frame) - (padding * 2);
+    self.paymentTextField.frame = CGRectMake(padding, self.cardHolderNameFeild.frame.origin.y + 160, width, 44);
 }
 
 -(IBAction)backTapped:(id)sender
@@ -38,32 +57,53 @@
 {
     [super didReceiveMemoryWarning];
 }
-
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
 - (IBAction)addAndContinue:(id)sender
 {
-    if ([self.cardNumberFeild.text length] > 0 && [self.cvvFeild.text length] >  0 && [self.monthFeild.text length]> 0 && [self.yearFeild.text length] > 0)
+    [[[ZASharedClass sharedInstance]inputValuesDict]  setValue:self.cardHolderNameFeild.text forKey:@"cardHolderNameFeild"];
+    
+    [self proceedForPayment];
+    
+    if (![self.paymentTextField isValid])
     {
-        [[[ZASharedClass sharedInstance]inputValuesDict]  setValue:self.cardHolderNameFeild.text forKey:@"cardHolderNameFeild"];
-        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.cardNumberFeild.text forKey:@"cardNumberFeild"];
-        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.cvvFeild.text forKey:@"cvvFeild"];
-        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.monthFeild.text forKey:@"monthFeild"];
-        [[[ZASharedClass sharedInstance]inputValuesDict] setValue: self.yearFeild.text forKey:@"yearFeild"];
-        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.billingAddres.text forKey:@"billingAddres"];
-        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.cityFeild.text forKey:@"cityFeild"];
-        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.billingStateFeild.text forKey:@"billingStateFeild"];
-        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.billingZipCodeFeild.text forKey:@"billingZipCodeFeild"];
-        
-        // NSLog(@"inputFeildsDict :%@",self.inputFeildsDict);
-        
-        [self proceedForPayment];
+        return;
     }
-    else{
-        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:APPLICATION_NAME message:@"Please enter all the feilds" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        [alert show];
-
+    if (![Stripe defaultPublishableKey])
+    {
+        NSError *error = [NSError errorWithDomain:StripeDomain
+                                             code:STPInvalidRequestError
+                                         userInfo:@{
+                                                    NSLocalizedDescriptionKey: @"Please specify a Stripe Publishable Key in Constants.m"
+                                                    }];
+        NSLog(@"Error %@",[error localizedDescription]);
+        return;
     }
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    STPCard *card = [[STPCard alloc] init];
+    card.number = self.paymentTextField.cardNumber;
+    card.expMonth = self.paymentTextField.expirationMonth;
+    card.expYear = self.paymentTextField.expirationYear;
+    card.cvc = self.paymentTextField.cvc;
+  
+    [[STPAPIClient sharedClient] createTokenWithCard:card
+                                          completion:^(STPToken *token, NSError *error) {
+                                              [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                              if (error) {
+                                                  NSLog(@"erroe %@",[error localizedDescription]);
+                                              }
+                                              NSLog(@"Tokerns %@",token);
+                                          }];
+    
+    
 }
 
+- (void)paymentView:(nonnull STPCard *)paymentView withCard:(nonnull STPCard *)card isValid:(BOOL)valid
+{
+    NSLog(@" valid : %d card %@",valid,card);
+}
 -(void)proceedForPayment
 {
     NSString * appointmentDate = [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"date"];
@@ -120,12 +160,12 @@
             [alert show];
         }
     }];
-
+    
 }
 - (void)reloadDataWithResponseDictionary:(NSMutableDictionary*)dictionary
 {
     [[ZASharedClass sharedInstance]dismissGlobalHUD];
-
+    
     
     if([[dictionary valueForKey:@"data"] isEqualToString:@"Success"])
     {
@@ -135,58 +175,25 @@
     }
     else
     {
-            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:APPLICATION_NAME message:[dictionary valueForKey:@"data"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:APPLICATION_NAME message:[dictionary valueForKey:@"data"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
     }
-
+    
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     if ([self.cardHolderNameFeild isFirstResponder])
     {
         [self.cardHolderNameFeild resignFirstResponder];
-        [self.cardNumberFeild becomeFirstResponder];
-    }
-    else if ([self.cardNumberFeild isFirstResponder])
-    {
-        [self.cardNumberFeild resignFirstResponder];
-        [self.cvvFeild becomeFirstResponder];
-    }
-    else if ([self.cvvFeild isFirstResponder])
-    {
-        [self.cvvFeild resignFirstResponder];
-        [self.monthFeild becomeFirstResponder];
-    }
-    else if ([self.monthFeild isFirstResponder])
-    {
-        [self.monthFeild resignFirstResponder];
-        [self.yearFeild becomeFirstResponder];
-    }
-    else if ([self.yearFeild isFirstResponder])
-    {
-        [self.yearFeild resignFirstResponder];
-        [self.billingAddres becomeFirstResponder];
-    }
-    else if ([self.billingAddres isFirstResponder])
-    {
-        [self.billingAddres resignFirstResponder];
-        [self.cityFeild becomeFirstResponder];
-    }
-    else if ([self.cityFeild isFirstResponder])
-    {
-        [self.cityFeild resignFirstResponder];
-        [self.billingStateFeild becomeFirstResponder];
-    }
-    else if ([self.billingStateFeild isFirstResponder])
-    {
-        [self.billingStateFeild resignFirstResponder];
-        [self.billingZipCodeFeild becomeFirstResponder];
-    }
-    else if ([self.billingZipCodeFeild isFirstResponder])
-    {
-        [self.billingZipCodeFeild resignFirstResponder];
+        [self.paymentTextField becomeFirstResponder];
     }
     
     return YES;
 }
+
+- (void)paymentCardTextFieldDidChange:(nonnull STPPaymentCardTextField *)textField {
+    self.navigationItem.rightBarButtonItem.enabled = textField.isValid;
+}
+
+
 @end

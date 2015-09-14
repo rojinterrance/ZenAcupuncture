@@ -12,6 +12,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+//com.olivetech.wildcard.zenacu
+//com.app.zenacu
 
 @end
 

@@ -61,4 +61,6 @@ OBJC_EXPORT NSString *const MainStoryBoardiPhone;
 
 OBJC_EXPORT NSString * const baseUrl;
 
+OBJC_EXPORT NSString * const GOOGLE_ADDRESS_URL;
+
 @end
