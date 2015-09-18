@@ -14,6 +14,8 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+#import "DescriptionViewController.h"
+
 @interface MainViewController ()
 
 @end
@@ -26,7 +28,6 @@
     
     [self.menuContainerViewController setPanMode:MFSideMenuPanModeDefault];
 
-    
     UIImageView * image = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     [image setImage:[UIImage imageNamed:@"background.png"]];
     [image setAlpha:0.3];
@@ -47,7 +48,9 @@
     
     [self.acupunctureImage.layer setBorderColor: [[UIColor blackColor] CGColor]];
     [self.acupunctureImage.layer setBorderWidth: 2.0];
-
+   
+    [self.needFreeMassage.layer setBorderColor: [[UIColor blackColor] CGColor]];
+    [self.needFreeMassage.layer setBorderWidth: 2.0];
     
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Hamburger"] style:UIBarButtonItemStylePlain target:self action:@selector(hamberAction:)];
     [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:246.0/255.0 green:188.0/255.0 blue:47.0/255.0 alpha:1.0]];
@@ -100,6 +103,11 @@
     [acupunctureguesture setNumberOfTapsRequired:1];
     [acupunctureguesture setDelegate:self];
     [self.acupunctureImage addGestureRecognizer:acupunctureguesture];
+    
+    UITapGestureRecognizer *freeMassageGuesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(freeMassageguestureAction:)];
+    [freeMassageGuesture setNumberOfTapsRequired:1];
+    [freeMassageGuesture setDelegate:self];
+    [self.needFreeMassage addGestureRecognizer:freeMassageGuesture];
 
 }
 
@@ -121,11 +129,17 @@
     [[NSUserDefaults standardUserDefaults]setValue:@"Cupuncture" forKey:@"SelectedCategory"];
     [self proceedToAppointmentScreen];
 }
+- (void)freeMassageguestureAction:(UITapGestureRecognizer *)recognizer
+{
+    [[NSUserDefaults standardUserDefaults]setValue:@"NeedleFreeMassage" forKey:@"SelectedCategory"];
+    [self proceedToAppointmentScreen];
+}
+
 
 -(void)proceedToAppointmentScreen
 {
-    AccunpunctureViewController * appObj = (AccunpunctureViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"AccunpunctureViewController"];
-    [self.navigationController pushViewController:appObj animated:YES];
+    DescriptionViewController *descObj = (DescriptionViewController *)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"DescriptionViewID"];
+    [self.navigationController pushViewController:descObj animated:YES];
 
 }
 - (void)didReceiveMemoryWarning

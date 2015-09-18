@@ -68,8 +68,13 @@
 		C17DC4B71B94C617004CE5B3 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = C17DC4A31B94C617004CE5B3 /* iTunesArtwork */; };
 		C17DC4B81B94C617004CE5B3 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = C17DC4A41B94C617004CE5B3 /* iTunesArtwork@2x */; };
 		C1B53C281BA0B6BB007F865A /* Zen.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B53C271BA0B6BB007F865A /* Zen.png */; };
+		C1B7834D1BAC44A0002FA9D2 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C1B7834C1BAC44A0002FA9D2 /* 6.jpg */; };
+		C1B7834F1BAC48B0002FA9D2 /* Skip.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B7834E1BAC48B0002FA9D2 /* Skip.png */; };
+		C1B783531BAC5316002FA9D2 /* AppointmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B783511BAC5316002FA9D2 /* AppointmentCell.m */; };
+		C1B783541BAC5316002FA9D2 /* AppointmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1B783521BAC5316002FA9D2 /* AppointmentCell.xib */; };
 		E24E5A783968F71158D11734 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18071766BBDA397BBAB9B17E /* libPods.a */; };
 		FC41E3261B9A0F3800A6B4E2 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41E3251B9A0F3800A6B4E2 /* SettingsViewController.m */; };
+		FCB6BC9D1BA75D4500E0E3C2 /* DescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB6BC9C1BA75D4500E0E3C2 /* DescriptionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,9 +171,16 @@
 		C17DC4A31B94C617004CE5B3 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		C17DC4A41B94C617004CE5B3 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		C1B53C271BA0B6BB007F865A /* Zen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zen.png; sourceTree = "<group>"; };
+		C1B7834C1BAC44A0002FA9D2 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
+		C1B7834E1BAC48B0002FA9D2 /* Skip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Skip.png; sourceTree = "<group>"; };
+		C1B783501BAC5316002FA9D2 /* AppointmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppointmentCell.h; sourceTree = "<group>"; };
+		C1B783511BAC5316002FA9D2 /* AppointmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppointmentCell.m; sourceTree = "<group>"; };
+		C1B783521BAC5316002FA9D2 /* AppointmentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppointmentCell.xib; sourceTree = "<group>"; };
 		C1D3A8251BA34F3600FE1CFE /* ZenAcupuncture.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ZenAcupuncture.entitlements; sourceTree = "<group>"; };
 		FC41E3241B9A0F3800A6B4E2 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = SideMenuSubViews/SettingsViewController.h; sourceTree = "<group>"; };
 		FC41E3251B9A0F3800A6B4E2 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = SideMenuSubViews/SettingsViewController.m; sourceTree = "<group>"; };
+		FCB6BC9B1BA75D4500E0E3C2 /* DescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DescriptionViewController.h; path = ZenAcupuncture/Viewcontrollers/DescriptionView/DescriptionViewController.h; sourceTree = SOURCE_ROOT; };
+		FCB6BC9C1BA75D4500E0E3C2 /* DescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DescriptionViewController.m; path = ZenAcupuncture/Viewcontrollers/DescriptionView/DescriptionViewController.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +217,9 @@
 			children = (
 				B789AB321B94312700861B94 /* PreviousOrdersViewController.h */,
 				B789AB331B94312700861B94 /* PreviousOrdersViewController.m */,
+				C1B783501BAC5316002FA9D2 /* AppointmentCell.h */,
+				C1B783511BAC5316002FA9D2 /* AppointmentCell.m */,
+				C1B783521BAC5316002FA9D2 /* AppointmentCell.xib */,
 			);
 			path = PreviousOrders;
 			sourceTree = "<group>";
@@ -286,6 +301,7 @@
 		C104D8571B89AE9D00A52C77 /* Viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				FCB6BC9E1BA75D5C00E0E3C2 /* DescriptionView */,
 				B74F5DB21B99A6D9006615FE /* SideMenu */,
 				C11182BA1B98B897001BDD16 /* ApptourView */,
 				B789AB2F1B9430FC00861B94 /* PreviousOrders */,
@@ -352,6 +368,7 @@
 				C11182C11B98BC04001BDD16 /* 3.jpg */,
 				C11182C21B98BC04001BDD16 /* 4.jpg */,
 				C11182C31B98BC04001BDD16 /* 5.jpg */,
+				C1B7834C1BAC44A0002FA9D2 /* 6.jpg */,
 			);
 			path = Apptour;
 			sourceTree = "<group>";
@@ -426,6 +443,7 @@
 				C11182BE1B98BC04001BDD16 /* Apptour */,
 				C17DC4901B94C617004CE5B3 /* Icons */,
 				B789AB351B943A7900861B94 /* Appointments.png */,
+				C1B7834E1BAC48B0002FA9D2 /* Skip.png */,
 				B74F5DB61B99A789006615FE /* Hamburger.png */,
 				B74F5DB71B99A789006615FE /* Hamburger@2x.png */,
 				B74F5DB81B99A789006615FE /* Hamburger@3x.png */,
@@ -498,6 +516,15 @@
 			name = SideMenuSubViews;
 			sourceTree = "<group>";
 		};
+		FCB6BC9E1BA75D5C00E0E3C2 /* DescriptionView */ = {
+			isa = PBXGroup;
+			children = (
+				FCB6BC9B1BA75D4500E0E3C2 /* DescriptionViewController.h */,
+				FCB6BC9C1BA75D4500E0E3C2 /* DescriptionViewController.m */,
+			);
+			name = DescriptionView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -549,6 +576,7 @@
 				TargetAttributes = {
 					C104D8251B89A9B100A52C77 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 3Z554U4Q6A;
 						SystemCapabilities = {
 							com.apple.OMC = {
 								enabled = 1;
@@ -602,6 +630,7 @@
 				C17DC4AF1B94C617004CE5B3 /* Icon-Small.png in Resources */,
 				C15F01921B8B914D000C4150 /* DeepTissue.png in Resources */,
 				C104D8541B89AA0B00A52C77 /* LaunchScreen.xib in Resources */,
+				C1B7834F1BAC48B0002FA9D2 /* Skip.png in Resources */,
 				C15F018A1B8B8F64000C4150 /* header.png in Resources */,
 				C104D8371B89A9B100A52C77 /* Images.xcassets in Resources */,
 				B74F5DB91B99A789006615FE /* Hamburger.png in Resources */,
@@ -611,6 +640,7 @@
 				C11182C71B98BC04001BDD16 /* 4.jpg in Resources */,
 				C17DC4AC1B94C617004CE5B3 /* Icon-76@3x.png in Resources */,
 				C1214B8D1B8D5F6F00A761E2 /* Acupuncture.png in Resources */,
+				C1B7834D1BAC44A0002FA9D2 /* 6.jpg in Resources */,
 				B74266F01B8C41A9008D32E8 /* back.png in Resources */,
 				C17DC4B11B94C617004CE5B3 /* Icon-Small@3x.png in Resources */,
 				C11182C61B98BC04001BDD16 /* 3.jpg in Resources */,
@@ -618,6 +648,7 @@
 				C17DC4B21B94C617004CE5B3 /* Icon-Spotlight-40.png in Resources */,
 				C17DC4A51B94C617004CE5B3 /* Icon-60.png in Resources */,
 				C15F01941B8B914D000C4150 /* swedish.png in Resources */,
+				C1B783541BAC5316002FA9D2 /* AppointmentCell.xib in Resources */,
 				C11182C51B98BC04001BDD16 /* 2.jpg in Resources */,
 				C17DC4A71B94C617004CE5B3 /* Icon-60@3x.png in Resources */,
 				C11182C41B98BC04001BDD16 /* 1.jpg in Resources */,
@@ -685,9 +716,11 @@
 				C104D82F1B89A9B100A52C77 /* AppDelegate.m in Sources */,
 				FC41E3261B9A0F3800A6B4E2 /* SettingsViewController.m in Sources */,
 				B74266F81B8C7C65008D32E8 /* AccunpunctureViewController.m in Sources */,
+				FCB6BC9D1BA75D4500E0E3C2 /* DescriptionViewController.m in Sources */,
 				B74266FE1B8C7D16008D32E8 /* PaymentViewController.m in Sources */,
 				C104D82C1B89A9B100A52C77 /* main.m in Sources */,
 				C15F01811B8B8899000C4150 /* MainViewController.m in Sources */,
+				C1B783531BAC5316002FA9D2 /* AppointmentCell.m in Sources */,
 				C15F017A1B8B882D000C4150 /* LoginViewController.m in Sources */,
 				B74267011B8C7D42008D32E8 /* ConfirmationViewController.m in Sources */,
 				B789AB341B94312700861B94 /* PreviousOrdersViewController.m in Sources */,
@@ -825,11 +858,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ZenAcupuncture/ZenAcupuncture.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CHANNIE AMATO (3Z554U4Q6A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHANNIE AMATO (3Z554U4Q6A)";
 				GCC_PREFIX_HEADER = "ZenAcupuncture/ZenAcupuncture-Prefix.pch";
 				INFOPLIST_FILE = ZenAcupuncture/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dccaebbd-c670-4d6c-9f29-eebe89ad61ca";
+				PROVISIONING_PROFILE = "d9e9396e-8dfa-4028-b51c-13b37424c208";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -840,10 +875,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ZenAcupuncture/ZenAcupuncture.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CHANNIE AMATO (3Z554U4Q6A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHANNIE AMATO (3Z554U4Q6A)";
 				GCC_PREFIX_HEADER = "ZenAcupuncture/ZenAcupuncture-Prefix.pch";
 				INFOPLIST_FILE = ZenAcupuncture/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d9e9396e-8dfa-4028-b51c-13b37424c208";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -10,6 +10,8 @@
 
 #import "MainViewController.h"
 
+#import "AppointmentCell.h"
+
 @interface PreviousOrdersViewController ()
 
 @end
@@ -22,11 +24,19 @@
     
     self.navigationItem.title=@"Appointments";
     
-    UIBarButtonItem * leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back.png"] style:UIBarButtonItemStylePlain target:self action:@selector(backTapped:)];
-    self.navigationItem.leftBarButtonItem =leftButton;
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Hamburger"] style:UIBarButtonItemStylePlain target:self action:@selector(hamberAction:)];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:246.0/255.0 green:188.0/255.0 blue:47.0/255.0 alpha:1.0]];
+    self.navigationItem.leftBarButtonItem = leftItem;
+    
+    [self.previousTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     UIBarButtonItem * rightButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newAppointment:)];
     self.navigationItem.rightBarButtonItem =rightButton;
+}
+
+-(void)hamberAction:(id)sender
+{
+    [self.menuContainerViewController toggleLeftSideMenuCompletion:nil];
 }
 
 -(IBAction)newAppointment:(id)sender
@@ -96,20 +106,44 @@
     return [self.previousArray count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+//    
+//    if (cell == nil)
+//    {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+//    }
+//    
+//    NSDictionary * eachDict = [self.previousArray objectAtIndex:indexPath.row];
+//    
+//  cell.textLabel.text =[NSString stringWithFormat:@"Date: %@ Time: %@",[eachDict valueForKey:@"appointmentDate"],[eachDict valueForKey:@"appointTime"]];
+//    cell.detailTextLabel.text = [NSString stringWithFormat:@"Lenght: %@",[eachDict valueForKey:@"sessionLength"]];
+//    return cell;
+
+
+
+    static NSString * simpleTableIdentifier = @"AppointmentCell";
     
+    AppointmentCell *cell = (AppointmentCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+        NSArray *nib = [[NSBundle mainBundle]loadNibNamed:@"AppointmentCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
     }
     
-    NSDictionary * eachDict = [self.previousArray objectAtIndex:indexPath.row];
+      NSDictionary * eachDict = [self.previousArray objectAtIndex:indexPath.row];
+
+    cell.firstLabel.text = [NSString stringWithFormat:@"Date: %@  & Time: %@",[eachDict valueForKey:@"appointmentDate"],[eachDict valueForKey:@"appointTime"]];
+    cell.secondLabel.text = [NSString stringWithFormat:@"Lenght :%@",[eachDict valueForKey:@"sessionLength"]];
     
-  cell.textLabel.text =[NSString stringWithFormat:@"Date: %@ Time: %@",[eachDict valueForKey:@"appointmentDate"],[eachDict valueForKey:@"appointTime"]];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Lenght: %@",[eachDict valueForKey:@"sessionLength"]];
     return cell;
+
+
 }
 
 - (void)didReceiveMemoryWarning

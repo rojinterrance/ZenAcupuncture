@@ -56,13 +56,13 @@
     self.bannerImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d.jpg",currentImage]];
     [self.bannerImage bringSubviewToFront:self.navigationController.view];
     
-    self.pageControl.numberOfPages = 5;
+    self.pageControl.numberOfPages = 6;
     [self.pageControl setCurrentPage:pageControlNum];
 }
 
 -(IBAction)rightSwipe:(id)sender
 {
-    if(currentImage >= 5)
+    if(currentImage >= 6)
     {
         currentImage = 0;
     }
@@ -76,7 +76,7 @@
 {
     if(currentImage <= 1 )
     {
-        currentImage = 6;
+        currentImage = 7;
     }
     
     currentImage--;

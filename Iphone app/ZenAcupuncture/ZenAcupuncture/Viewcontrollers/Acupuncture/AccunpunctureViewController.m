@@ -13,7 +13,9 @@
 #import "LoginViewController.h"
 
 @interface AccunpunctureViewController ()
-
+{
+    NSString * newtotalTime;
+}
 @end
 
 @implementation AccunpunctureViewController
@@ -58,12 +60,13 @@
 }
 
 - (IBAction)datePlrClk:(id)sender {
+    
     NSDate *date = _datePkr.date;
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateStyle:NSDateFormatterLongStyle];
     [formatter setTimeStyle:NSDateFormatterNoStyle];
-    [formatter setDateFormat:@"dd-MM-YYYY HH:mm a"];
-    
+    [formatter setDateFormat:@"YYYY/MM/dd HH:mm a"];
+    //yyyy/mm/dd
     _formattedString = [formatter stringFromDate:date];
     NSArray * array = [_formattedString componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSString * day = [array firstObject];
@@ -72,9 +75,21 @@
     NSString * amorpm = [array lastObject];
     NSString * totalTime = [NSString stringWithFormat:@"%@ %@",time,amorpm];
 
-    
     [self.dateFeild setText:day];
     [self.timeFeild setText:totalTime];
+    
+    
+    //Calculate 30 min
+    NSCalendar *calendar=[[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *components=[NSDateComponents new];
+    components.minute=30;
+    NSDate *newDate=[calendar dateByAddingComponents: components toDate: date options: 0];
+    
+    _formattedString = [formatter stringFromDate:newDate];
+    NSArray * newArray = [_formattedString componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    newtotalTime = [NSString stringWithFormat:@"%@ %@",[newArray objectAtIndex:1],[newArray lastObject]];
+
 }
 
 - (IBAction)doneClk:(id)sender {
@@ -83,27 +98,29 @@
 
 - (IBAction)genderSelectionAction:(id)sender {
     
-    switch (self.genderSegment.selectedSegmentIndex)
-    {
-        case 0:
-        {
-            self.genderStr =@"Female";
-        }
-            break;
-            
-        case 1:
-        {
-            self.genderStr =@"Either";
-        }
-            break;
-        case 2:
-        {
-            self.genderStr =@"Male";
-        }
-            break;
-        default:
-            break;
-    }
+    self.genderStr =[NSString stringWithFormat:@"%ld", (long)self.genderSegment.selectedSegmentIndex];
+//    switch (self.genderSegment.selectedSegmentIndex)
+//    {
+//        case 0:
+//        {
+//             self.genderStr =@"Female";
+//            //self.genderStr =@"Female";
+//        }
+//            break;
+//            
+//        case 1:
+//        {
+//            self.genderStr =@"Either";
+//        }
+//            break;
+//        case 2:
+//        {
+//            self.genderStr =@"Male";
+//        }
+//            break;
+//        default:
+//            break;
+//    }
     
 }
 
@@ -145,7 +162,7 @@
     if([self.dateFeild.text length] > 0  && [self.timeFeild.text length] > 0)
     {
         [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.dateFeild.text forKey:@"date"];
-        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.timeFeild.text forKey:@"time"];
+        [[[ZASharedClass sharedInstance]inputValuesDict] setValue:newtotalTime forKey:@"time"];
         [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.genderStr forKey:@"gender"];
         [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.lenghtStr forKey:@"length"];
         [[[ZASharedClass sharedInstance]inputValuesDict] setValue:self.notesFeild.text forKey:@"notes"];

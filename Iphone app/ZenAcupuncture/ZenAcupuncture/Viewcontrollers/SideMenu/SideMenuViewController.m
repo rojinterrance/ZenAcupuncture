@@ -24,7 +24,7 @@
 {
     [super viewDidLoad];
     
-    self.sideMenuArray = @[@"Book Massage",@"Appointments",@"Share",@"Settings",@"Log Out"];
+    self.sideMenuArray = @[@"Book Acupuncture",@"Appointments",@"Log Out"];//,@"Share",@"Settings",
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -54,25 +54,50 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0)
+    NSString * selectedItem = [self.sideMenuArray objectAtIndex:indexPath.row];
+    if ([selectedItem isEqualToString:@"Book Acupuncture"])
     {
         MainViewController * settingsView = (MainViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"MainViewController"];
         self.menuContainerViewController.centerViewController = [[UINavigationController alloc]initWithRootViewController:settingsView];
+        [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
+
     }
-    else if (indexPath.row == 1)
+    else if ([selectedItem isEqualToString:@"Appointments"])
     {
         PreviousOrdersViewController * previous = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"PreviousOrdersViewController"];
         self.menuContainerViewController.centerViewController = [[UINavigationController alloc]initWithRootViewController:previous];
-    }
-    else if (indexPath.row == 3)
-    {
+        [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
 
-        SettingsViewController * settingsView = (SettingsViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"SettingsViewID"];
-        self.menuContainerViewController.centerViewController = [[UINavigationController alloc]initWithRootViewController:settingsView];
     }
-    [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
+    else if ([selectedItem isEqualToString:@"Log Out"])
+    {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:APPLICATION_NAME message:@"Are you sure you want to Logout?" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
+        alert.tag = 10;
+        [alert show];
+    }
+
+//    else if (indexPath.row == 3)
+//    {
+//
+//        SettingsViewController * settingsView = (SettingsViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"SettingsViewID"];
+//        self.menuContainerViewController.centerViewController = [[UINavigationController alloc]initWithRootViewController:settingsView];
+//    }
 
 }
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 10 && buttonIndex == 0)
+    {
+        
+        [ [NSUserDefaults standardUserDefaults]setValue:nil forKey:@"userId"];
+        
+        MainViewController * mainViewObj = (MainViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"MainViewController"];
+        self.menuContainerViewController.centerViewController = [[UINavigationController alloc]initWithRootViewController:mainViewObj];
+        [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
+
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {

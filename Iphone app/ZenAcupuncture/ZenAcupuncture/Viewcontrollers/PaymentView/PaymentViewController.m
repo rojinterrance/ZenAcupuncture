@@ -65,7 +65,7 @@
 {
     [[[ZASharedClass sharedInstance]inputValuesDict]  setValue:self.cardHolderNameFeild.text forKey:@"cardHolderNameFeild"];
     
-    [self proceedForPayment];
+//    [self proceedForPayment];
     
     if (![self.paymentTextField isValid])
     {
@@ -91,10 +91,19 @@
     [[STPAPIClient sharedClient] createTokenWithCard:card
                                           completion:^(STPToken *token, NSError *error) {
                                               [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                              if (error) {
+                                              if (error)
+                                              {
                                                   NSLog(@"erroe %@",[error localizedDescription]);
                                               }
-                                              NSLog(@"Tokerns %@",token);
+                                              else
+                                              {
+                                                  [[[ZASharedClass sharedInstance]inputValuesDict] setValue:token forKey:@"stripeToken"];
+                                                  NSLog(@"Tokerns %@",token);
+                                                  [self proceedForPayment];
+                                            
+                                              }
+                                              
+                                             
                                           }];
     
     
@@ -107,38 +116,25 @@
 -(void)proceedForPayment
 {
     NSString * appointmentDate = [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"date"];
-    NSString * appointTime= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"time"];
+    NSString *   appointTime = [[[[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"time"] componentsSeparatedByString:@" "] firstObject];
     NSString * therapistGender= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"gender"];
     NSString * sessionLength= [[[ZASharedClass sharedInstance]inputValuesDict]valueForKey:@"length"];
     NSString * note= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"notes"];
-#warning teja Check  *** userId
-    NSString * userId= @"1";
+    NSString * userId= [[NSUserDefaults standardUserDefaults]valueForKey:@"userId"];
     NSString * addressLabel= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"addressFeild"];
     NSString * isActive= @"1";
     NSString * firstName= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"firstNameFeild"];
     NSString * lastName= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"lastNameFeild"];
     NSString * deliveryAddress = [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"addressFeild"];
-    NSString * apt_suit_room= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"roomFeild"];
-    NSString * city= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"cityFeild"];
-    NSString * state= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"stateFeild"];
-    NSString * zip= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"zipCodeFeild"];
     NSString * phone= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"phoneFeild"];
-    NSString * parkingInstruction = [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"parkingFeild"];
     NSString * isHotel= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"isHotel"];
-#warning teja Check  **** dateAdded, dateModified
-    NSString * dateAdded= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"date"];
-    NSString * dateModified= @"dateModified";
-    
     NSString * cardHolderName= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"cardHolderNameFeild"];
-    NSString * cardNumber= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"cardNumberFeild"];
-    NSString * billingAddress= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"billingAddres"];
-    NSString * billingCity= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"cityFeild"];
-    NSString * billingState= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"billingStateFeild"];
-    NSString * billingZip= [[[ZASharedClass sharedInstance]inputValuesDict] valueForKey:@"billingZipCodeFeild"];
+    NSString * stripeToken = [[[ZASharedClass sharedInstance]inputValuesDict]valueForKey:@"stripeToken"];
+    NSString*acupunctureType = [[NSUserDefaults standardUserDefaults]valueForKey:@"SelectedCategory"];
     
     NSString *functionAndFormat =@"&function=register&format=xml";
     
-    NSString * urlString = [NSString stringWithFormat:@"%@?appointmentDate=%@&appointTime=%@&therapistGender=%@&sessionLength=%@&note=%@&userId=%@&addressLabel=%@&isActive=%@&firstName=%@&lastName=%@&deliveryAddress=%@&apt_suit_room=%@&city=%@&state=%@&zip=%@&phone=%@&parkingInstruction=%@&isHotel=%@&dateAdded=%@&dateModified=%@&cardHolderName=%@&cardNumber=%@&billingAddress=%@&billingCity=%@&billingState=%@&billingZip=%@%@",baseUrl,appointmentDate,appointTime,therapistGender,sessionLength,note,userId,addressLabel,isActive,firstName,lastName,deliveryAddress,apt_suit_room,city,state,zip,phone,parkingInstruction,isHotel,dateAdded,dateModified,cardHolderName,cardNumber,billingAddress,billingCity,billingState,billingZip,functionAndFormat];
+    NSString * urlString = [NSString stringWithFormat:@"%@?appointmentDate=%@&appointTime=%@&therapistGender=%@&sessionLength=%@&note=%@&userId=%@&acupunctureType=%@&stripeToken=%@&isActive=%@&addressLabel=%@&firstName=%@&lastname=%@&deliveryAddress=%@&phone=%@&isHotel=%@&cardHolderName=%@%@",baseUrl,appointmentDate,appointTime,therapistGender,sessionLength,note,userId,acupunctureType,stripeToken,isActive,addressLabel,firstName,lastName,deliveryAddress,phone,isHotel,cardHolderName,functionAndFormat];
     
     [[ZASharedClass sharedInstance]showGlobalProgressHUDWithTitle:@"Loading"];
     
@@ -185,6 +181,7 @@
     if ([self.cardHolderNameFeild isFirstResponder])
     {
         [self.cardHolderNameFeild resignFirstResponder];
+        [[[ZASharedClass sharedInstance]inputValuesDict]setValue:self.cardHolderNameFeild.text forKey:@"cardHolderNameFeild"];
         [self.paymentTextField becomeFirstResponder];
     }
     

@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *acupressureImage;
 @property (weak, nonatomic) IBOutlet UIImageView *cuppingImage;
 @property (weak, nonatomic) IBOutlet UIImageView *acupunctureImage;
+@property (weak, nonatomic) IBOutlet UIImageView *needFreeMassage;
 
 @end

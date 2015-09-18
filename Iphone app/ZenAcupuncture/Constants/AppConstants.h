@@ -62,5 +62,9 @@ OBJC_EXPORT NSString *const MainStoryBoardiPhone;
 OBJC_EXPORT NSString * const baseUrl;
 
 OBJC_EXPORT NSString * const GOOGLE_ADDRESS_URL;
+OBJC_EXPORT NSString * const ACUPUNCTURE;
+OBJC_EXPORT NSString * const ACU_CUP;
+OBJC_EXPORT NSString * const ACU_MASSAGE;
+OBJC_EXPORT NSString * const NEEDLE_FREE_MASSAGE;
 
 @end

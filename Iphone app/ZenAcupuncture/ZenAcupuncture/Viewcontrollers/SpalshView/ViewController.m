@@ -32,15 +32,14 @@
     }
     else
     {
-        if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"isFirstLaunch"]isEqualToString:@"NotFirst"])
+        NSString *isLoggedIn = [[NSUserDefaults standardUserDefaults] valueForKey:@"userId"];
+        if (isLoggedIn.length >0)
         {
             MainViewController * mainViewObj = (MainViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"MainViewController"];
             [self.navigationController pushViewController:mainViewObj animated:YES];
         }
         else
         {
-            [[NSUserDefaults standardUserDefaults]setValue:@"NotFirst" forKey:@"isFirstLaunch"];
-            
             ApptourViewController *apptourView = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"ApptourViewController"];
             [self.navigationController pushViewController:apptourView animated:YES];
         }
