@@ -1,4 +1,7 @@
 <?php 
+
+require 'class.phpmailer.php';
+
 function deliver_response($format, $api_response){
  
     // Define HTTP responses
@@ -55,6 +58,30 @@ function deliver_response($format, $api_response){
     exit;
  
 }
+
+function getLatitude($deliveryAddress){
+	$city = $deliveryAddress;
+	$geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$city.'&sensor=false');
+	$geo = json_decode($geocode, true);
+	if ($geo['status'] = 'OK') {
+		$latitude = $geo['results'][0]['geometry']['location']['lat'];
+		$longitude = $geo['results'][0]['geometry']['location']['lng'];
+		$status = '{"latitude":"'.$latitude.'","longitude":"'.$longitude.'"}';		
+	} else {
+		$status = '{" False "}';
+	}
+	return $status;
+}
+
+function distance($lat1, $lon1, $lat2, $lon2) {
+	$theta = $lon1 - $lon2;
+	$dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+	$dist = acos($dist);
+	$dist = rad2deg($dist);
+	$miles = $dist * 60 * 1.1515;
+	return $miles;
+}
+
  
 // Define whether user authentication is required
 $authentication_required = FALSE;
@@ -158,9 +185,9 @@ if($_GET['function'] == "signup" ) {
 	}
 }
 
-if( $_GET['function'] == "register" ) { 
+if( $_GET['function'] == "register" ) {
 	$appointmentDate = $_GET['appointmentDate'];
-	$appointTime = $_GET['appointTime'];
+	$appointTime = $_GET['appointTime']; 
 	$therapistGender = $_GET['therapistGender'];
 	$sessionLength = $_GET['sessionLength'];
 	$note = $_GET['note'];
@@ -170,40 +197,104 @@ if( $_GET['function'] == "register" ) {
 	$firstName = $_GET['firstName'];
 	$lastName = $_GET['lastName'];
 	$deliveryAddress = $_GET['deliveryAddress'];
-	$apt_suit_room = $_GET['apt_suit_room'];	
-	$city = $_GET['city'];
-	$state = $_GET['state'];
-	$zip = $_GET['zip'];
 	$phone = $_GET['phone'];
-	$parkingInstruction = $_GET['parkingInstruction'];
 	$isHotel = $_GET['isHotel'];	
-	$dateAdded = $_GET['dateAdded'];
-	$dateModified = $_GET['dateModified'];
+	$dateAdded = date("Y-m-d");
 	$cardHolderName = $_GET['cardHolderName'];
-	$cardNumber = $_GET['cardNumber'];
-	$billingAddress = $_GET['billingAddress'];
-	$billingCity = $_GET['billingCity'];	
-	$billingState = $_GET['billingState'];
-	$billingZip = $_GET['billingZip'];
-	$acupunctureType = $_GET['acupunctureType'];
+	$stripeToken = $_GET['stripeToken'];
+	$acupunctureType = $_GET['type'];
+	
+	$latlong = getLatitude($deliveryAddress);
+	$latlong = json_decode($latlong);
+	$latitude = $latlong->latitude;
+	$longitude = $latlong->longitude;
+	
+	if($latitude == "" || $longitude == ""){
+		$response['code'] = 5;
+		$response['status'] = 404;
+		$response['data'] = 'Please enter the valid delivery address';
+		$response['userId'] = $_GET['userId'];
+		deliver_response($_GET['format'], $response);
+	}
 	
 	$link = mysql_connect('127.0.0.1','root','indian@1') or die('Cannot connect to the DB');
 	mysql_select_db('bodymassage',$link) or die('Cannot select the DB');
 	
-	$query = "insert into registerations (appointmentDate, appointTime, therapistGender, sessionLength, note, userId, acupunctureType) values ('$appointmentDate', '$appointTime', '$therapistGender', '$sessionLength', '$note', '$userId', '$acupunctureType')";
+	$query = "insert into registerations (appointmentDate, appointTime, therapistGender, sessionLength, note, userId, acupunctureType, stripeToken) values ('$appointmentDate', '$appointTime', '$therapistGender', '$sessionLength', '$note', '$userId', '$acupunctureType', '$stripeToken')";
 	$result1 = mysql_query($query,$link) or die('Errant query:  '.$query);
 	
-	$query = "insert into useraddress (isActive, addressLabel, firstName, lastName, deliveryAddress, apt_suit_room, city, state, zip, phone, parkingInstruction, isHotel, dateAdded, dateModified, cardHolderName, cardNumber, billingAddress, billingCity, billingState, billingZip, userId) values (1, '$addressLabel', '$firstName', '$lastName', '$deliveryAddress', '$apt_suit_room', '$city', '$state', '$zip', '$phone', '$parkingInstruction', '$isHotel', '$dateAdded', '$dateModified', '$cardHolderName', '$cardNumber', '$billingAddress', '$billingCity', '$billingState', '$billingZip', '$userId')";
+	$query = "insert into useraddress (isActive, addressLabel, firstName, lastName, deliveryAddress, phone, isHotel, dateAdded, cardHolderName, userId, latitude, longitude) values (1, '$addressLabel', '$firstName', '$lastName', '$deliveryAddress', '$phone', '$isHotel', '$dateAdded', '$cardHolderName', '$userId', '$latitude', '$longitude')";
 	$result2 = mysql_query($query,$link) or die('Errant query:  '.$query);
+	
+	$day = strtotime($appointmentDate);
+	$day = date('D', $day);
+	
+	$time = strtotime($appointTime);
+	$time = date('H', $time);
+	
+	$query = "select p.name, p.email, al.latitude as myLatitude, al.longitude as myLongitude from practitioners p 
+			INNER JOIN available_time at on at.practitioner_id = p.id
+			INNER JOIN available_locations al on al.practitioner_id = p.id
+			where 
+				at.time_From <= '$time' and 
+				at.time_to >='$time' and 
+				at.day = '$day' and
+				p.specialities like '%$acupunctureType%'
+			GROUP BY p.email";
+	$result = mysql_query($query,$link) or die('Errant query:  '.$query);
+	if(mysql_num_rows($result)) {	
+		$nearestEmail = "";
+		$shortestDistance = "";
+		$name = "";
+		while($rows = mysql_fetch_array($result)){
+			$myLatitude = $rows['myLatitude'];
+			$myLongitude = $rows['myLongitude'];
+			$distance = distance($myLatitude, $myLongitude, $latitude, $longitude);
+			if ($shortestDistance == "" || $shortestDistance > $distance) {
+				$shortestDistance = $distance;
+				$nearestEmail = $rows['email'];
+				$name = $rows['name'];
+			}					
+		}
+		$mail = new PHPMailer();
+		$mail->IsSMTP();
+		$mail->Mailer = 'smtp';
+		$mail->SMTPAuth = true;
+		$mail->Host = 'smtp.gmail.com'; // "ssl://smtp.gmail.com" didn't worked
+		$mail->Port = 587;
+		$mail->SMTPSecure = 'tls';
+		// or try these settings (worked on XAMPP and WAMP):
+		// $mail->Port = 587;
+		// $mail->SMTPSecure = 'tls';
+		$mail->Username = "test@gmail.com";
+		$mail->Password = "test";
+		$mail->IsHTML(true); // if you are going to send HTML formatted emails
+		$mail->SingleTo = true; // if you want to send a same email to multiple users. multiple emails will be sent one-by-one.
+		$mail->From = "noreply@zenacu.com";
+		$mail->FromName = "Zen Acu";
+		$mail->addAddress($nearestEmail,$name);
+		$mail->Subject = "User booked in Zen Acu";
+		$mail->Body = "Hi ".$name.",<br /><br />".$firstName." ".$lastName." booked for ".$appointmentDate." at ".$appointTime."";
+		
+		//$mail->send();	
+	} else {
+		$response['code'] = 5;
+		$response['status'] = 404;
+		$response['data'] = 'There is no partitioner available for your requested place and date.';
+		$response['userId'] = $_GET['userId'];
+		deliver_response($_GET['format'], $response);
+	}
 	if( $result1 == true && $result2 == true) {
 		$response['code'] = 1;
 		$response['status'] = $api_response_code[ $response['code'] ]['HTTP Response'];
 		$response['data'] = $api_response_code[ $response['code'] ]['Message'];
+		$response['userId'] = $_GET['userId'];
 		deliver_response($_GET['format'], $response);
 	} else {
 		$response['code'] = 5;
 		$response['status'] = $api_response_code[ $response['code'] ]['HTTP Response'];
 		$response['data'] = $api_response_code[ $response['code'] ]['Message'];
+		$response['userId'] = $_GET['userId'];
 		deliver_response($_GET['format'], $response);
 	}
 }
@@ -222,10 +313,8 @@ if( $_GET['function'] == "getOrder" ) {
 		$rows = array();
 		while($r = mysql_fetch_assoc($result)) {
 			 $rows[] = $r;
-		}
-		
-		$value = json_encode($rows);
-	
+		}		
+		$value = json_encode($rows);	
 		$response['code'] = 1;
 		$response['status'] = $api_response_code[ $response['code'] ]['HTTP Response'];		
 		$response['data'] = $value;
@@ -239,8 +328,6 @@ if( $_GET['function'] == "getOrder" ) {
 		deliver_response($_GET['format'], $response);
 	}
 }
-
-
 
 deliver_response($_GET['format'], $response);
  
